@@ -6,7 +6,7 @@
   <!-- Welcome Banner -->
   <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-6 mb-6 text-white relative overflow-hidden">
     <div class="relative z-10">
-      <h1 class="text-2xl font-bold mb-2">Welcome back, Farhaan Chaudhary!</h1>
+      <h1 class="text-2xl font-bold mb-2">Welcome back, <?= session()->get('username') ?>!</h1>
       <p class="text-purple-100">You have 17 open tasks and 1 task due today.</p>
     </div>
     <div class="absolute right-6 top-1/2 transform -translate-y-1/2">

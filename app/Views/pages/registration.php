@@ -1,6 +1,5 @@
 <?= $this->include('layout/header') ?>
-
-<div class="min-h-screen bg-gray-50">
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
   <!-- Navigation Bar -->
   <nav class="bg-gradient-to-r from-blue-600 to-blue-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,68 +22,75 @@
       </div>
     </div>
   </nav>
-  <!-- Main Content -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Page Header -->
-    <div class="mb-8">
-      <h2 class="text-3xl font-semibold text-blue-600 mb-3">Account Registration</h2>
-      <p class="text-gray-600 mb-6">
-        Use the forms below to create or update the information we have on file for your account
-      </p>
-      <hr class="border-gray-300" />
+   <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Messages Container -->
+    <div class="w-[56 rem] mx-auto mb-8">
+      <?php if (session()->getFlashdata('success')): ?>
+        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-4 rounded-lg shadow-sm">
+          <div class="flex items-center">
+            <svg class="h-5 w-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <p class="text-green-700"><?= session()->getFlashdata('success') ?></p>
+          </div>
+        </div>
+      <?php endif; ?>
+
+      <?php if (session()->getFlashdata('errors')): ?>
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg shadow-sm">
+          <div class="flex items-start">
+            <svg class="h-5 w-5 text-red-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="text-red-800 font-medium mb-2">Please fix these errors:</h3>
+              <ul class="list-disc list-inside text-red-700 space-y-1">
+                <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                  <li><?= $error ?></li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <?php endif; ?>
     </div>
 
-    <!-- Display Success Message -->
-    <?php if (session()->getFlashdata('success')): ?>
-      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-        <?= session()->getFlashdata('success') ?>
-      </div>
-    <?php endif; ?>
-
-    <!-- Display Validation Errors -->
-    <?php if (session()->getFlashdata('errors')): ?>
-      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-        <ul class="list-disc list-inside">
-          <?php foreach (session()->getFlashdata('errors') as $error): ?>
-            <li><?= $error ?></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-    <?php endif; ?>
-
     <!-- Registration Form Container -->
-    <div class="bg-white rounded-lg shadow-lg p-8">
-      <form action="<?= base_url('auth/processRegistration') ?>" method="POST" id="registrationForm">
-        <?= csrf_field() ?>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <!-- Left Side - Form -->
-          <div class="lg:col-span-2 space-y-8">
+    <div class="bg-white rounded-xl shadow-md overflow-hidden w-[full] mx-auto">
+      <div class="md:flex">
+        <!-- Left Side - Form -->
+        <div class="p-8 md:p-10 md:w-2/3">
+          <form action="<?= base_url('/registration') ?>" method="POST" id="registrationForm" class="space-y-6">
             <!-- Contact Information Section -->
             <div>
-              <h3 class="text-xl font-semibold text-blue-600 mb-6">Contact Information</h3>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-100">Contact Information</h3>
               <div class="space-y-4">
                 <div>
-                  <input type="email" name="email" placeholder="Enter Email..." value="<?= old('email') ?>"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400 <?= session()->getFlashdata('errors.email') ? 'border-red-500' : '' ?>"
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                  <input type="email" name="email" id="email" placeholder="your@email.com" value="<?= old('email') ?>"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all <?= session()->getFlashdata('errors.email') ? 'border-red-500' : '' ?>"
                     required />
                 </div>
 
                 <div>
-                  <input type="text" name="full_name" placeholder="Enter Full Name..." value="<?= old('full_name') ?>"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400 <?= session()->getFlashdata('errors.full_name') ? 'border-red-500' : '' ?>"
+                  <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                  <input type="text" name="full_name" id="full_name" placeholder="John Doe" value="<?= old('full_name') ?>"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all <?= session()->getFlashdata('errors.full_name') ? 'border-red-500' : '' ?>"
                     required />
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div class="sm:col-span-2">
-                    <input type="tel" name="phone" placeholder="Phone Number..." value="<?= old('phone') ?>"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400 <?= session()->getFlashdata('errors.phone') ? 'border-red-500' : '' ?>"
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" value="<?= old('phone') ?>"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all <?= session()->getFlashdata('errors.phone') ? 'border-red-500' : '' ?>"
                       required />
                   </div>
                   <div>
-                    <input type="text" name="extension" placeholder="Ext" value="<?= old('extension') ?>"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400" />
+                    <label for="extension" class="block text-sm font-medium text-gray-700 mb-1">Extension</label>
+                    <input type="text" name="extension" id="extension" placeholder="123" value="<?= old('extension') ?>"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" />
                   </div>
                 </div>
               </div>
@@ -92,87 +98,68 @@
 
             <!-- Access Credentials Section -->
             <div>
-              <h3 class="text-xl font-semibold text-blue-600 mb-6">Access Credentials</h3>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-100">Account Credentials</h3>
               <div class="space-y-4">
-                <div class="relative">
-                  <input type="password" name="password" id="password" placeholder="Create a Password..."
-                    class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400 <?= session()->getFlashdata('errors.password') ? 'border-red-500' : '' ?>"
-                    required />
-                  <button type="button" id="togglePassword" onclick="togglePassword('password', 'togglePassword')"
-                    class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                    <svg class="w-5 h-5 eye-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                      </path>
-                    </svg>
-                    <svg class="w-5 h-5 eye-off-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21">
-                      </path>
-                    </svg>
-                  </button>
+                <div>
+                  <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                  <div class="relative">
+                    <input type="password" name="password" id="password" placeholder="••••••••"
+                      class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all <?= session()->getFlashdata('errors.password') ? 'border-red-500' : '' ?>"
+                      required />
+                    <button type="button" onclick="togglePassword('password')"
+                      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="password-eye">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <p class="mt-1 text-xs text-gray-500">Minimum 8 characters with at least one number</p>
                 </div>
 
-                <div class="relative">
-                  <input type="password" name="confirm_password" id="confirmPassword"
-                    placeholder="Confirm New Password..."
-                    class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400 <?= session()->getFlashdata('errors.confirm_password') ? 'border-red-500' : '' ?>"
-                    required />
-                  <button type="button" id="toggleConfirmPassword"
-                    onclick="togglePassword('confirmPassword', 'toggleConfirmPassword')"
-                    class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                    <svg class="w-5 h-5 eye-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                      </path>
-                    </svg>
-                    <svg class="w-5 h-5 eye-off-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21">
-                      </path>
-                    </svg>
-                  </button>
+                <div>
+                  <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                  <div class="relative">
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="••••••••"
+                      class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all <?= session()->getFlashdata('errors.confirm_password') ? 'border-red-500' : '' ?>"
+                      required />
+                    <button type="button" onclick="togglePassword('confirm_password')"
+                      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="confirm_password-eye">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 pt-6">
+            <div class="pt-4">
               <button type="submit"
-                class="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-md transition-colors disabled:opacity-50"
-                id="submitBtn">
-                Register
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Create Account
               </button>
-              <a href="<?= base_url('login') ?>"
-                class="bg-red-500 hover:bg-red-600 text-white font-medium px-8 py-3 rounded-md transition-colors text-center">
-                Cancel
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Side - Illustration -->
-          <div class="lg:col-span-1 flex justify-center items-center">
-            <div class="relative">
-              <!-- Illustration Container -->
-              <div class="w-64 h-64 relative">
-                <!-- Illustration -->
-                <div>
-                  <div class="relative w-64 h-40">
-                    <div class="absolute inset-0 bg-cover bg-center"
-                      style="background-image: url('/assets/images/Mobile-login.png'); filter: brightness(0.7);"></div>
-                  </div>
-                </div>
+              <div class="mt-4 text-center text-sm text-gray-600">
+                Already have an account? <a href="<?= base_url('/login') ?>" class="text-blue-600 hover:text-blue-700 font-medium">Sign in</a>
               </div>
             </div>
+          </form>
+        </div>
+
+        <!-- Right Side - Illustration -->
+        <div class="hidden md:block md:w-1/3 bg-gradient-to-b from-blue-500 to-blue-600 p-8 flex items-center justify-center">
+          <div class="text-center text-white">
+            <!-- <img src="/assets/images/auth-illustration.svg" alt="Create Account" class="w-full max-w-xs mx-auto mb-6"> -->
+            <h3 class="text-xl font-semibold mb-2">Welcome to SupportCenter</h3>
+            <p class="text-blue-100">Create your account to get started with our support services</p>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </main>
 </div>
+<script src="<?= base_url('assets/js/registration.js') ?>"></script>
 
 <?= $this->include('layout/footer') ?>

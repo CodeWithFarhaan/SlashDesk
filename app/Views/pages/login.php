@@ -27,9 +27,15 @@
               </div>
             </div>
 
+            <!-- Error Message -->
+            <?php if (session()->getFlashdata('error')): ?>
+              <div class="mt-4 mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                <?= session()->getFlashdata('error') ?>
+              </div>
+            <?php endif; ?>
+
             <!-- Login Form -->
-            <form action="<?= base_url('auth/login') ?>" method="POST" class="space-y-6">
-              <?= csrf_field() ?>
+            <form action="<?= base_url('/login') ?>" method="POST" class="space-y-6">
 
               <!-- Email Input -->
               <div>
@@ -46,16 +52,9 @@
               <!-- Login Button -->
               <button type="submit"
                 class="w-full bg-gradient-to-r from-slashdesk-blue to-slashdesk-purple text-white py-3 px-4 rounded-lg font-medium hover:from-slashdesk-purple hover:to-slashdesk-blue transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slashdesk-blue">
-                <a href="/dashboard">Login</a>
+                <a>Login</a>
               </button>
             </form>
-
-            <!-- Error Message -->
-            <?php if (session()->getFlashdata('error')): ?>
-              <div class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                <?= session()->getFlashdata('error') ?>
-              </div>
-            <?php endif; ?>
           </div>
         </div>
       </div>
