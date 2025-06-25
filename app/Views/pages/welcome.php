@@ -1,6 +1,6 @@
 <?= $this->include('layout/header') ?>
 
-<main>
+<main class="overflow-y-auto">
   <!-- Hero Section with Background Image -->
   <section class="relative bg-gray-800 text-white">
     <!-- Background image with overlay -->

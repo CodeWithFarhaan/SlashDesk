@@ -1,6 +1,6 @@
 <?= $this->include('layout/header') ?>
 <!-- Navigation Bar -->
-<nav class="bg-gradient-to-r from-blue-600 to-blue-700">
+<nav class="bg-gradient-to-r from-blue-600 to-purple-700">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-14">
 			<a href="/" class="text-white font-medium px-4 py-2 hover:bg-white hover:bg-opacity-10 rounded transition-colors">

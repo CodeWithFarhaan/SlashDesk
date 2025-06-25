@@ -33,11 +33,10 @@ class Registration extends BaseController
             'username'        => $this->request->getPost('full_name'),
             'password'         => $this->request->getPost('password'),
         ];
-        
+        // print_r($data); die;
+        $client = \Config\Services::curlrequest();
         // API endpoint 
         $apiUrl = 'http://192.168.0.123:7888/api/auth/signup';
-        
-        $client = \Config\Services::curlrequest();
 
         try {
 
@@ -48,7 +47,7 @@ class Registration extends BaseController
                 ],
                 'body' => json_encode($data),
             ]);
-            // print_r($response); die;
+            
             $responseBody = json_decode($response->getBody(), true);
 
             // Handle success based on your API's response structure

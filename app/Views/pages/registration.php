@@ -25,7 +25,7 @@
    <!-- Main Content -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Messages Container -->
-    <div class="w-[56 rem] mx-auto mb-8">
+    <div class="w-[56 rem] mx-auto mb-4">
       <?php if (session()->getFlashdata('success')): ?>
         <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-4 rounded-lg shadow-sm">
           <div class="flex items-center">
@@ -151,9 +151,9 @@
         <!-- Right Side - Illustration -->
         <div class="hidden md:block md:w-1/3 bg-gradient-to-b from-blue-500 to-blue-600 p-8 flex items-center justify-center">
           <div class="text-center text-white">
-            <!-- <img src="/assets/images/auth-illustration.svg" alt="Create Account" class="w-full max-w-xs mx-auto mb-6"> -->
             <h3 class="text-xl font-semibold mb-2">Welcome to SupportCenter</h3>
             <p class="text-blue-100">Create your account to get started with our support services</p>
+            <img src="/assets/images/mobile-login.png" alt="Create Account" class="w-full max-w-xs mx-auto mb-6">
           </div>
         </div>
       </div>

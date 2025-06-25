@@ -27,7 +27,7 @@
 </head>
 
 <body class="min-h-screen flex flex-col bg-gray-50">
-  <header class="bg-white shadow-sm overflow-y-auto">
+  <header class="bg-white shadow-sm">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center">
         <div class="w-10 h-10 relative">

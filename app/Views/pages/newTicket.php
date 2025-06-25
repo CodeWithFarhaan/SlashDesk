@@ -1,6 +1,7 @@
 <?= $this->include('layout/header') ?>
+
 <!-- Navigation Bar -->
-<nav class="bg-gradient-to-r from-blue-600 to-blue-700">
+<nav class="bg-gradient-to-r from-purple-600 to-blue-700">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14">
       <a href="/" class="text-white font-medium px-4 py-2 hover:bg-white hover:bg-opacity-10 rounded transition-colors">
@@ -19,73 +20,72 @@
     </div>
   </div>
 </nav>
-<div class="flex-1 w-[70%] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-  <!-- Main Content -->
-  <main class="#">
-    <!-- Page Header -->
-    <div class="mb-8">
-      <h2 class="text-3xl font-semibold text-blue-600 mb-2">Sign in to SlashRTC</h2>
-      <p class="text-gray-600 mb-4">To better serve you, we encourage our Clients to register for an account.</p>
-      <hr class="border-gray-300">
-    </div>
 
-    <!-- Login Container -->
-    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- Left Side - Login Form -->
-        <div class="space-y-6">
+<!-- Main Content -->
+<div class="bg-gradient-to-br from-blue-50 to-indigo-50 py-12 overflow-y-auto">
+  <div class="w-[50rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Login Card with rotated header -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden flex">
+      <!-- Card Body (Left Side) -->
+      <div class="flex-1 p-8">
+        <form action="#" method="POST" class="space-y-6">
           <div>
-            <input type="email" placeholder="Enter Email..."
-              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400">
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
           </div>
-
+          
           <div>
-            <input type="password" placeholder="Enter Password..."
-              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-700 placeholder-gray-400">
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <div class="relative">
+              <input type="password" id="password" name="password" placeholder="••••••••" required
+                class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+              <button type="button" onclick="togglePassword()"
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="eye-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+              </button>
+            </div>
+            <a href="/forgot-password" class="text-xs text-blue-600 hover:text-blue-700 mt-1 inline-block">Forgot password?</a>
           </div>
-
-          <button class="bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-2 rounded-md transition-colors">
-            Sign In
+          
+          <button type="submit" 
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Sign in
           </button>
-        </div>
+        </form>
 
-        <!-- Right Side - Registration Info and Illustration -->
-        <div class="flex justify-center mt-8">
-          <div class="space-y-4">
-            <div>
-              <span class="text-gray-700 font-medium">Not yet registered? </span>
-              <a href="/registration" class="text-blue-600 hover:text-blue-700 font-medium underline">
-                Create an account
-              </a>
-            </div>
-
-            <div>
-              <span class="text-gray-700 font-medium">I'm an agent — </span>
-              <a href="/login" class="text-blue-600 hover:text-blue-700 font-medium underline">
-                sign in here
-              </a>
-            </div>
-          </div>
-
-          <!-- Illustration -->
-          <div>
-            <div class="relative w-64 h-40"> <!-- adjust width and height as needed -->
-              <div class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('/assets/images/Mobile-login.png'); filter: brightness(0.7);"></div>
-            </div>
-          </div>
+        <!-- Card Footer -->
+        <div class="mt-6 text-center">
+          <p class="text-sm text-gray-600">
+            Not yet registered? <a href="/registration" class="font-medium text-blue-600 hover:text-blue-500">Create an account</a>
+          </p>
+          <p class="text-xs text-gray-500 mt-2">
+            I'm an agent — <a href="/login" class="font-medium text-blue-600 hover:text-blue-500">sign in here</a>
+          </p>
         </div>
       </div>
 
-      <!-- Help Text -->
-  </main>
-
-  <p class="text-gray-600">
-    If this is your first time contacting us or you've lost the ticket number, please
-    <a href="/newTicket" class="text-blue-600 hover:text-blue-700 font-medium underline">
-      open a new ticket
-    </a>
-  </p>
+      <div class="w-[20rem] bg-blue-600 flex flex-col items-center justify-center py-4">
+        <div class="text-center whitespace-nowrap">
+          <h2 class="text-xl font-bold text-white">Sign in to your account</h2>
+          <p class="text-blue-100 text-xs mt-1">To better serve you</p>
+        </div>
+        <img src="/assets/images/Mobile-login.png" alt="Mobile login" class="mt-4 w-full object-cover" style="filter: brightness(0.7);">
+      </div>
+    </div>
+    
+    <!-- Help Text -->
+    <div class="mt-6 text-center">
+      <p class="text-sm text-gray-600">
+        If this is your first time contacting us or you've lost the ticket number, please
+        <a href="/newTicket" class="font-medium text-blue-600 hover:text-blue-500">open a new ticket</a>
+      </p>
+    </div>
+  </div>
 </div>
 
+<script src="<?= base_url('assets/js/newTicket.js') ?>"></script>
 <?= $this->include('layout/footer') ?>
