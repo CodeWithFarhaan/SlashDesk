@@ -49,12 +49,12 @@ class Login extends BaseController
                 // print_r($session->get()); die;
                 return redirect()->to('/dashboard');
             } else {
-                return redirect()->back()->with('error', $responseData['message'] ?? 'Invalid credentials');
+                return redirect()->back()->with('error', $responseData['message'] ?? 'Incorrect Email or Password.');
             }
 
         } catch (\Exception $e) {
             log_message('error', 'Login API Error: '.$e->getMessage());
-            return redirect()->back()->with('error', 'Incorrect Email or Password.');
+            return redirect()->back()->with('error', 'Server is busy sorry for the inconveniences');
         }
     }
 }
