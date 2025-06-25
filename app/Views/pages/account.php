@@ -37,13 +37,13 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <input type="text" name="full_name" placeholder="Enter your full name"
+          <input type="text" name="full_name" placeholder="Enter Name" value="<?= session()->get('username') ?>"
             class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
         </div>
         
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-          <input type="email" name="email" placeholder="your.email@example.com"
+          <input type="email" name="email" value="<?= session()->get('email') ?>" placeholder="your.email@example.com"
             class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
         </div>
       </div>
@@ -75,7 +75,7 @@
     <div class="flex flex-col md:flex-row gap-4 items-start md:items-end">
       <div class="flex-1">
         <label class="block text-sm font-medium text-gray-700 mb-1">User ID</label>
-        <input type="text" name="user_id" readonly
+        <input type="text" name="user_id" value="<?= session()->get('user_id') ?>" readonly
           class="w-full px-4 py-3 border border-gray-200 bg-gray-50 rounded-lg text-gray-500 cursor-not-allowed">
       </div>
       <button type="button" onclick="openChangePasswordModal()"
