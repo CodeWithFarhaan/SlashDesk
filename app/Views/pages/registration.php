@@ -1,7 +1,7 @@
 <?= $this->include('layout/header') ?>
 <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
   <!-- Navigation Bar -->
-  <nav class="bg-gradient-to-r from-blue-600 to-blue-700">
+  <nav class="bg-gradient-to-r from-purple-600 to-blue-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-14">
         <div class="bg-white rounded-full px-6 py-2">
@@ -149,7 +149,7 @@
         </div>
 
         <!-- Right Side - Illustration -->
-        <div class="hidden md:block md:w-1/3 bg-gradient-to-b from-blue-500 to-blue-600 p-8 flex items-center justify-center">
+        <div class="hidden md:block md:w-1/3 bg-gradient-to-b from-purple-500 to-blue-600 p-8 flex items-center justify-center">
           <div class="text-center text-white">
             <h3 class="text-xl font-semibold mb-2">Welcome to SupportCenter</h3>
             <p class="text-blue-100">Create your account to get started with our support services</p>

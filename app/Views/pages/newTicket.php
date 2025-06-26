@@ -63,12 +63,12 @@
             Not yet registered? <a href="/registration" class="font-medium text-blue-600 hover:text-blue-500">Create an account</a>
           </p>
           <p class="text-xs text-gray-500 mt-2">
-            I'm an agent — <a href="/login" class="font-medium text-blue-600 hover:text-blue-500">sign in here</a>
+            I'm an agent — <a href="/login" class="font-medium text-blue-600 hover:text-blue-500">Sign in here</a>
           </p>
         </div>
       </div>
 
-      <div class="w-[20rem] bg-blue-600 flex flex-col items-center justify-center py-4">
+      <div class="w-[20rem] bg-gradient-to-b from-blue-500 to-purple-600 flex flex-col items-center justify-center py-4">
         <div class="text-center whitespace-nowrap">
           <h2 class="text-xl font-bold text-white">Sign in to your account</h2>
           <p class="text-blue-100 text-xs mt-1">To better serve you</p>
