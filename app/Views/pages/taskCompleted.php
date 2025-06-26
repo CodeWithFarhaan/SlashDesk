@@ -100,12 +100,12 @@
         <!-- Row 1 -->
         <tr>
           <td class="p-3"><input type="checkbox" /></td>
-          <td class="p-3 text-blue-600 hover:underline cursor-pointer">35773</td>
+          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><a href="/viewTask">35773</a></td>
           <td class="p-3 text-blue-600 hover:underline cursor-pointer">046314</td>
           <td class="p-3 text-gray-600">6/13/25 7:34 PM</td>
           <td class="p-3">
             <div class="flex space-x-2">
-              <a href="#" class="text-blue-600 hover:underline">BFL Automated Leadset Removal Issue</a>
+              <a href="/viewTask" class="text-blue-600 hover:underline">BFL Automated Leadset Removal Issue</a>
               <span class="text-xs ml-1">(10)</span>
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path

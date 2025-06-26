@@ -39,3 +39,140 @@ DEBUG - 2025-06-26 08:20:13 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-06-26 08:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-06-26 08:28:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-06-26 08:29:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-26 09:50:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-26 10:01:58 --> ErrorException: Undefined variable $task
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 32.
+ 1 APPPATH\Views\pages\viewTask.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $task', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 32)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+CRITICAL - 2025-06-26 10:03:06 --> ErrorException: Undefined variable $task
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 61.
+ 1 APPPATH\Views\pages\viewTask.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $task', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 61)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+CRITICAL - 2025-06-26 10:03:28 --> ErrorException: Undefined variable $task
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 74.
+ 1 APPPATH\Views\pages\viewTask.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $task', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 74)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+CRITICAL - 2025-06-26 10:05:12 --> ErrorException: Undefined variable $task
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 101.
+ 1 APPPATH\Views\pages\viewTask.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $task', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 101)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+CRITICAL - 2025-06-26 10:05:46 --> ErrorException: Undefined variable $task
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 109.
+ 1 APPPATH\Views\pages\viewTask.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $task', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 109)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+CRITICAL - 2025-06-26 10:06:28 --> ErrorException: Undefined variable $task
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 159.
+ 1 APPPATH\Views\pages\viewTask.php(159): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $task', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 159)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+CRITICAL - 2025-06-26 10:19:53 --> ErrorException: Undefined variable $comment
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 198.
+ 1 APPPATH\Views\pages\viewTask.php(198): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $comment', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 198)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+CRITICAL - 2025-06-26 10:20:44 --> ErrorException: Undefined variable $comment
+[Method: GET, Route: viewTask]
+in APPPATH\Views\pages\viewTask.php on line 205.
+ 1 APPPATH\Views\pages\viewTask.php(205): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $comment', 'D:\\SlashDesk\\app\\Views\\pages\\viewTask.php', 205)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SlashDesk\\app\\Views\\pages\\viewTask.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 5 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+DEBUG - 2025-06-26 11:42:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-26 12:47:02 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "pages/viewTask.php"
+[Method: GET, Route: viewTask]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/viewTask.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('pages/viewTask', [], true)
+ 3 APPPATH\Controllers\ViewTask.php(9): view('pages/viewTask')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ViewTask->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ViewTask))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
+DEBUG - 2025-06-26 13:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-26 13:26:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
