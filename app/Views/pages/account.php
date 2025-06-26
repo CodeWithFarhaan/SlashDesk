@@ -78,7 +78,7 @@
         <input type="text" name="user_id" value="<?= session()->get('user_id') ?>" readonly
           class="w-full px-4 py-3 border border-gray-200 bg-gray-50 rounded-lg text-gray-500 cursor-not-allowed">
       </div>
-      <button type="button" onclick="openChangePasswordModal()"
+      <button type="button" onclick="openPasswordModal()"
         class="px-5 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
@@ -106,8 +106,70 @@
 </div>
 
 <!-- Modern Password Modal (Placeholder) -->
-<div id="passwordModal" class="hidden fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center p-4 z-50">
-  <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6">
-    <!-- Modal content would go here -->
+<div id="passwordModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
+    
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-4 border-b">
+      <h3 class="text-xl font-semibold text-gray-900">Change Password</h3>
+      <button id="CannedcloseModalBtn" class="text-gray-400 hover:text-gray-600 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Info text -->
+    <div class="px-6 pt-5 pb-2">
+      <p class="text-sm text-gray-600 mb-4">
+        Confirm your current password and enter a new password to continue.
+      </p>
+    </div>
+
+    <!-- Form fields -->
+    <form id="passForm">
+      <div class="px-6 space-y-4">
+        <div>
+          <label for="currentpassword" class="block text-sm font-medium text-gray-700 mb-1">Current Password <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="currentpassword" name="currentpassword" placeholder="Enter current password..."
+            class="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition"/>
+        </div>
+        <div>
+          <h3 class="text-blue-700">Enter New Password Section:</h3>
+          <div class="mt-3">
+            <label for="newpassword" class="block text-sm font-medium text-gray-700 mb-1">New Password <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="newpassword" name="newpassword" placeholder="Enter new password..."
+              class="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition"/>
+          </div>
+          <div class="mt-3">
+            <label for="confirmpassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="confirmpassword" name="confirmpassword" placeholder="Confirm new password..."
+              class="w-full h-11 px-4 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition"/> 
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="flex flex-col sm:flex-row gap-3 mt-3 px-6 py-4 border-t bg-gray-50">
+        <button type="button" id="passwordForm"
+          class="sm:order-1 w-full sm:w-auto px-4 py-2 text-white bg-green-600 hover:bg-green-700 border border-green-300 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Update
+        </button>
+        <button type="reset" id="resetForm"
+          class="sm:order-3 w-full sm:w-auto px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-lg text-sm font-medium transition focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Reset
+        </button>
+        <button type="button" form="PasswordcancelBtn"
+          class="sm:order-2 w-full sm:w-auto px-4 py-2 text-white bg-red-600 hover:bg-red-700 border border-red-300 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Cancel
+        </button>
+      </div>
+    </form>
+
   </div>
 </div>
+
+
+<script src="<?= base_url('assets/js/account.js') ?>"></script>
