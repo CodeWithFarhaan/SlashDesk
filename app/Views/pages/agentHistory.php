@@ -9,7 +9,7 @@
                     <i class="fas fa-user text-gray-600 text-sm px-3"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-semibold text-gray-900"><?= $agent_name ?? 'Farhaan Chaudhary' ?></h1>
+                    <h1 class="text-xl font-semibold text-gray-900">Farru</h1>
                     <p class="text-sm text-gray-500">Support Agent • Ticket History</p>
                 </div>
             </div>

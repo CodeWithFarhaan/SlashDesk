@@ -12,7 +12,7 @@ $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::registration');
 
 $routes->get('/login', 'Login::index');
-$routes->post('/login', 'Login::login');
+// $routes->post('/login', 'Login::login');
 
 $routes->get('/ticketStatus', 'TicketStatus::index');
 

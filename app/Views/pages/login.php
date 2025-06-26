@@ -16,7 +16,7 @@
           <div class="max-w-md mx-auto w-full">
             <!-- Greeting -->
             <div class="text-center mb-8">
-              <h2 class="text-2xl font-bold text-slashdesk-pink mb-2">Hello !</h2>
+              <h2 class="text-2xl font-bold text-slashdesk-pink mb-2">Hello Farru!</h2>
               <p class="text-xl text-slashdesk-blue font-medium">Welcome to SlashDesk</p>
             </div>
 
@@ -52,7 +52,7 @@
               <!-- Login Button -->
               <button type="submit" id="loginBtn"
                 class="w-full bg-gradient-to-r from-slashdesk-blue to-slashdesk-purple text-white py-3 px-4 rounded-lg font-medium hover:from-slashdesk-purple hover:to-slashdesk-blue transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slashdesk-blue">
-                <a>Login</a>
+                <a href="/dashboard">Login</a>
               </button>
             </form>
           </div>
