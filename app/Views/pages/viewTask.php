@@ -44,8 +44,13 @@
               <i class="fas fa-flag mr-2"></i>
               <i class="fas fa-caret-down"></i>
             </button>
-            <div id="dropdown1" class="hidden absolute mt-1 bg-white shadow-md rounded text-sm z-10">
-              <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Close</a>
+            <div id="dropdown1" class="px-4 py-2 hidden absolute mt-2 ml-[-3.25rem] bg-white shadow-md rounded text-sm z-10">
+              <div class="relative">
+                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
+                  <i class="fas fa-check-circle text-inherit transition-colors duration-200"></i>
+                  <span>Close</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -55,10 +60,25 @@
               <i class="fas fa-user mr-2"></i>
               <i class="fas fa-caret-down"></i>
             </button>
-            <div id="dropdown2" class="hidden absolute mt-1 bg-white shadow-md rounded text-sm z-10">
-              <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Claim</a>
-              <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Agent</a>
-              <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Team</a>
+            <div id="dropdown2" class="px-4 py-2 hidden absolute mt-2 ml-[-1.25rem] bg-white shadow-md rounded text-sm z-10">
+              <div class="relative">
+                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
+                  <i class="fas fa-check-circle text-inherit transition-colors duration-200"></i>
+                  <span>Claim</span>
+                </a>
+              </div>
+              <div class="relative">
+                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
+                  <i class="fas fa-user text-inherit transition-colors duration-200"></i>
+                  <span>Agent</span>
+                </a>
+              </div>  
+              <div class="relative">
+                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
+                  <i class="fas fa-users text-inherit transition-colors duration-200"></i>
+                  <span>Team</span>
+                </a>
+              </div>
             </div>
           </div>
 
