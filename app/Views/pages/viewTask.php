@@ -266,8 +266,8 @@
           <div id="addCommentSection" class="block">
             <!-- Collaborators section - add ID here -->
             <div id="collaboratorsSection" class="mb-3">
-              <span class="text-sm font-medium text-gray-600">
-                Collaborators
+              <span class="text-sm font-medium text-blue-600">
+                <a href="#">Collaborators</a>
               </span>
             </div>
             <!-- Rich Text Editor Toolbar -->
@@ -327,11 +327,12 @@
                   <p id="placeholder" class="text-gray-500">Start writing your text here.</p>
                 </div>
             </div>
-            <div class="mt-3 text-xs text-gray-500">
-              <i class="fas fa-paperclip">
-              </i>
-              Drop files here or choose files
+            <div id="fileUploadArea" class="file-upload-area mt-3 text-xs text-gray-500">
+              <i class="fas fa-paperclip"></i> Drop files here or <span class="text-blue-600 choose-files-link" id="chooseFilesLink">
+                <a href="#">choose files</a></span> 
+                <input type="file" multiple="multiple" id="fileInput" class="hidden-input" style="display: none; width: 0px; height: 0px;" accept="">
             </div>
+              
 
             <!-- Bottom Actions -->
             <div class="flex justify-between items-center mt-4">
