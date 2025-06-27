@@ -24,9 +24,15 @@
       </button>
     </div>
   </div>
+  <div class="flex space-x-4 text-sm text-blue-600">
+    <span>Select:</span>
+    <button class="hover:underline">All</button>
+    <button class="hover:underline">None</button>
+    <button class="hover:underline">Toggle</button>
+  </div>
 
   <!-- Table Header -->
-  <div class="overflow-auto border border-gray-200 rounded-lg shadow-sm">
+  <div class="mt-3 overflow-auto border border-gray-200 rounded-lg shadow-sm">
     <table class="min-w-full text-sm text-left">
       <thead class="bg-gray-50 text-gray-900 font-semibold">
         <tr>

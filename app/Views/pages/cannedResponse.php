@@ -36,9 +36,14 @@
               Add New Response
             </button>
           </div>
-
+          <div class="flex space-x-4 text-sm text-blue-600">
+            <span>Select:</span>
+            <button class="hover:underline">All</button>
+            <button class="hover:underline">None</button>
+            <button class="hover:underline">Toggle</button>
+          </div>
           <!-- Data Table -->
-          <div class="overflow-x-auto">
+          <div class="mt-3 overflow-x-auto">
             <table class="w-full">
               <thead>
                 <tr class="bg-gray-50 border-b border-gray-200">

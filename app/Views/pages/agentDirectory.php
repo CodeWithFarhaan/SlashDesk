@@ -87,9 +87,14 @@
       </button>
     </div>
   </div>
-
+  <div class="flex space-x-4 text-sm text-blue-600">
+    <span>Select:</span>
+    <button class="hover:underline">All</button>
+    <button class="hover:underline">None</button>
+    <button class="hover:underline">Toggle</button>
+  </div>
   <!-- Table Header -->
-  <div class="overflow-auto border rounded-lg">
+  <div class="mt-3 overflow-auto border rounded-lg">
     <table class="min-w-full text-sm text-left">
       <thead class="bg-gray-100 text-gray-900 font-semibold">
         <tr>

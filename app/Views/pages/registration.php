@@ -142,7 +142,7 @@
                 Create Account
               </button>
               <div class="mt-4 text-center text-sm text-gray-600">
-                Already have an account? <a href="<?= base_url('/login') ?>" class="text-blue-600 hover:text-blue-700 font-medium">Sign in</a>
+                Already have an account? <a href="<?= base_url('/newTicket') ?>" class="text-blue-600 hover:text-blue-700 font-medium">Sign in</a>
               </div>
             </div>
           </form>
