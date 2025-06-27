@@ -176,3 +176,5 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
 10 SYSTEMPATH\rewrite.php(44): require_once('D:\\SlashDesk\\public\\index.php')
 DEBUG - 2025-06-26 13:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-06-26 13:26:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-26 13:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-26 13:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

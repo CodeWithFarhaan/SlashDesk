@@ -4,7 +4,7 @@
 
 <div class="container mx-auto px-4 py-6 overflow-y-auto">
   <!-- Header Buttons -->
-  <div class="max-w-4xl mb-8">
+  <div class="mb-8">
     <div class="flex bg-gray-200 rounded-lg p-1">
       <button class="flex-1 py-2 px-4 text-center bg-white rounded-md shadow-sm font-medium text-gray-900">
         <a href="/ticketOpen">Open</a>

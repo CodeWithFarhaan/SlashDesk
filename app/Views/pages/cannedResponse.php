@@ -4,7 +4,7 @@
   <!-- Main Content -->
   <div class="px-6 py-8 h-[calc(100vh-64px)] overflow-y-auto">
     <!-- Tabs -->
-    <div class="max-w-4xl mx-auto mb-8">
+    <div class="max-w-4xl px-6 mb-3">
       <div class="flex bg-gray-200 rounded-lg p-1">
         <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
           <a href="/faqs">FAQ's</a>
