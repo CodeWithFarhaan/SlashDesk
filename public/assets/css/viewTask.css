@@ -1,0 +1,31 @@
+/* Fix for pre tag overflow */
+.comment-content pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Additional responsive handling */
+.comment-content {
+    overflow: hidden !important;
+    word-break: break-word !important;
+}
+
+/* Active tab styling */
+.tab-active {
+    background-color: white !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    font-weight: 500;
+    color: #111827 !important;
+}
+
+.tab-inactive {
+    color: #6b7280;
+}

@@ -2,28 +2,6 @@
 <?= $this->include('partials/navbar') ?>
 <?= $this->include('partials/newTaskModal') ?>
 
-<style>
-/* Fix for pre tag overflow */
-.comment-content pre {
-    white-space: pre-wrap !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    font-family: inherit !important;
-    font-size: inherit !important;
-    line-height: 1.5 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Additional responsive handling */
-.comment-content {
-    overflow: hidden !important;
-    word-break: break-word !important;
-}
-</style>
-
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
     <!-- Header -->
@@ -271,107 +249,113 @@
           </div>
         </div>
 
-        <!-- Add Comment Section -->
+        <!-- Tab Navigation for Post Update/Internal Note -->
         <div class="border-t pt-4">
           <div class="max-w-4xl mb-4">
             <div class="flex bg-gray-200 rounded-lg p-1">
-              <button class="flex-1 py-2 px-4 text-center bg-white rounded-md shadow-sm font-medium text-gray-900">
-                <a href="/ticketOpen">Post Update</a>
-              </button>
-              <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
-                <a href="/myTask">Post Internal Note</a>
-              </button>
-            </div>
-          </div>
-          <div class="mb-3">
-            <span class="text-sm font-medium text-gray-600">
-              Collaborators
-            </span>
-          </div>
-          <!-- Rich Text Editor Toolbar -->
-          <div class="border border-slate-200 rounded-lg overflow-hidden">
-              <div class="flex items-center gap-1 p-2 bg-slate-50 border-b border-slate-200 flex-wrap">
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="code">
-                  <i class="fas fa-code text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="bold">
-                  <i class="fas fa-bold text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="italic">
-                  <i class="fas fa-italic text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="underline">
-                  <i class="fas fa-underline text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="strikethrough">
-                  <i class="fas fa-strikethrough text-sm"></i>
-                </button>
-
-                <div class="w-px h-6 bg-slate-300 mx-1"></div>
-
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertUnorderedList">
-                  <i class="fas fa-list-ul text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertOrderedList">
-                  <i class="fas fa-list-ol text-sm"></i>
-                </button>
-
-                <div class="w-px h-6 bg-slate-300 mx-1"></div>
-
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="justifyLeft">
-                  <i class="fas fa-align-left text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="justifyCenter">
-                  <i class="fas fa-align-center text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="justifyRight">
-                  <i class="fas fa-align-right text-sm"></i>
-                </button>
-
-                <div class="w-px h-6 bg-slate-300 mx-1"></div>
-
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertImage">
-                  <i class="fas fa-image text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="createLink">
-                  <i class="fas fa-link text-sm"></i>
-                </button>
-                <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertHorizontalRule">
-                  <i class="fas fa-minus text-sm"></i>
-                </button>
-              </div>
-
-              <div id="editor" class="min-h-[120px] p-3 focus:outline-none text-gray-900" contenteditable="true" onfocus="handleFocus()" onblur="handleBlur()">
-                <p id="placeholder" class="text-gray-500">Start writing your text here.</p>
-              </div>
-          </div>
-          <div class="mt-3 text-xs text-gray-500">
-            <i class="fas fa-paperclip">
-            </i>
-            Drop files here or choose files
-          </div>
-          <!-- Bottom Actions -->
-          <div class="flex justify-between items-center mt-4">
-            <div class="flex items-center space-x-2">
-              <label class="text-sm font-medium text-gray-600">
-                Status:
-              </label>
-              <select class="border border-gray-300 rounded px-3 py-1 text-sm">
-                <option value="open">
-                  Open
-                </option>
-                <option value="closed">
-                  Closed
-                </option>
-              </select>
-            </div>
-            <div class="space-x-2 mx-auto">
-              <button class="px-4 py-2 bg-yellow-300 border-2 border-yellow-600 text-gray-600 rounded text-sm hover:text-black hover:bg-yellow-400">
+              <button id="postUpdateTab" class="flex-1 py-2 px-4 text-center rounded-md transition-colors tab-active" onclick="showCommentSection('update')">
                 Post Update
               </button>
-              <button class="px-4 py-2 bg-gray-300 text-gray-700 rounded text-sm hover:bg-gray-400">
-                Reset
+              <button id="postInternalNoteTab" class="flex-1 py-2 px-4 text-center rounded-md transition-colors tab-inactive" onclick="showCommentSection('internal')">
+                Post Internal Note
               </button>
+            </div>
+          </div>
+
+          <!-- Add Comment Section (Visible by default for Post Update) -->
+          <div id="addCommentSection" class="block">
+            <!-- Collaborators section - add ID here -->
+            <div id="collaboratorsSection" class="mb-3">
+              <span class="text-sm font-medium text-gray-600">
+                Collaborators
+              </span>
+            </div>
+            <!-- Rich Text Editor Toolbar -->
+            <div class="border border-slate-200 rounded-lg overflow-hidden">
+                <div class="flex items-center gap-1 p-2 bg-slate-50 border-b border-slate-200 flex-wrap">
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="code">
+                    <i class="fas fa-code text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="bold">
+                    <i class="fas fa-bold text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="italic">
+                    <i class="fas fa-italic text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="underline">
+                    <i class="fas fa-underline text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="strikethrough">
+                    <i class="fas fa-strikethrough text-sm"></i>
+                  </button>
+
+                  <div class="w-px h-6 bg-slate-300 mx-1"></div>
+
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertUnorderedList">
+                    <i class="fas fa-list-ul text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertOrderedList">
+                    <i class="fas fa-list-ol text-sm"></i>
+                  </button>
+
+                  <div class="w-px h-6 bg-slate-300 mx-1"></div>
+
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="justifyLeft">
+                    <i class="fas fa-align-left text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="justifyCenter">
+                    <i class="fas fa-align-center text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="justifyRight">
+                    <i class="fas fa-align-right text-sm"></i>
+                  </button>
+
+                  <div class="w-px h-6 bg-slate-300 mx-1"></div>
+
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertImage">
+                    <i class="fas fa-image text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="createLink">
+                    <i class="fas fa-link text-sm"></i>
+                  </button>
+                  <button type="button" class="toolbar-btn p-2 hover:bg-slate-200 rounded" data-action="insertHorizontalRule">
+                    <i class="fas fa-minus text-sm"></i>
+                  </button>
+                </div>
+
+                <div id="commentEditor" class="min-h-[120px] p-3 focus:outline-none text-gray-900" contenteditable="true" onfocus="handleFocus()" onblur="handleBlur()">
+                  <p id="placeholder" class="text-gray-500">Start writing your text here.</p>
+                </div>
+            </div>
+            <div class="mt-3 text-xs text-gray-500">
+              <i class="fas fa-paperclip">
+              </i>
+              Drop files here or choose files
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="flex justify-between items-center mt-4">
+              <div class="flex items-center space-x-2">
+                <label class="text-sm font-medium text-gray-600">
+                  Status:
+                </label>
+                <select class="border border-gray-300 rounded px-3 py-1 text-sm">
+                  <option value="open">
+                    Open
+                  </option>
+                  <option value="closed">
+                    Closed
+                  </option>
+                </select>
+              </div>
+              <div class="space-x-2 mx-auto">
+                <button id="submitButton" class="px-4 py-2 bg-yellow-300 border-2 border-yellow-600 text-gray-600 rounded text-sm hover:text-black hover:bg-yellow-400">
+                  Post Update
+                </button>
+                <button class="px-4 py-2 bg-gray-300 text-gray-700 rounded text-sm hover:bg-gray-400" onclick="resetCommentSection()">
+                  Reset
+                </button>
+              </div>
             </div>
           </div>
         </div>
