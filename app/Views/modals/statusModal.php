@@ -16,7 +16,7 @@
             <h3 class="text-lg font-semibold text-blue-700">
                 Close Task #35773
             </h3>
-            <button type="button" onclick="closeModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
+            <button type="button" onclick="closeStatusModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -69,7 +69,7 @@
                 </button>
                 <button 
                     type="button" 
-                    onclick="closeModal()" 
+                    onclick="closeStatusModal()" 
                     class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                 >
                     Cancel

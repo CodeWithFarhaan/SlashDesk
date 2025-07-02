@@ -5,6 +5,7 @@
 <?= $this->include('modals/dueDateModal') ?>
 <?= $this->include('modals/departmentModal') ?>
 <?= $this->include('modals/assignedToModal') ?>
+<?= $this->include('modals/collaboratorModal') ?>
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
@@ -115,7 +116,7 @@
                 Status:
               </span>
               <span class="text-sm text-blue-600">
-                <a class="open-close-modal">Open</a>
+                <a class="open-close-modal cursor-pointer">Open</a>
               </span>
             </div>
             <div class="flex">
@@ -131,7 +132,7 @@
                 Due Date:
               </span>
               <span class="text-sm text-blue-600">
-                <a data-modal-toggle="update-due-date-modal">--None--</a>
+                <a data-modal-toggle="update-due-date-modal" class="cursor-pointer">--None--</a>
               </span>
             </div>
           </div>
@@ -142,7 +143,7 @@
                 Department:
               </span>
               <span class="text-sm text-blue-600">
-                <a onclick="openTransferModal(35773); return false;">Customer Deliveries</a>
+                <a onclick="openTransferModal(35773); return false;" class="cursor-pointer">Customer Deliveries</a>
               </span>
             </div>
             <div class="flex">
@@ -150,7 +151,7 @@
                 Assigned To:
               </span>
               <span class="text-sm text-blue-600">
-                <a class="openAssignedToModal">hamza shaikh</a>
+                <a class="openAssignedToModal cursor-pointer">hamza shaikh</a>
               </span>
             </div>
             <div class="flex">
@@ -158,7 +159,7 @@
                 Collaborators:
               </span>
               <span class="text-sm text-blue-600">
-                Collaborators
+                <a class="open-modal-btn cursor-pointer">Collaborators</a>
               </span>
             </div>
           </div>
@@ -324,7 +325,7 @@
             <!-- Collaborators section - add ID here -->
             <div id="collaboratorsSection" class="mb-3">
               <span class="text-sm font-medium text-blue-600">
-                <a href="#">Collaborators</a>
+                <a class="open-modal-btn cursor-pointer">Collaborators</a>
               </span>
             </div>
             <!-- Rich Text Editor Toolbar -->

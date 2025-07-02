@@ -4,7 +4,7 @@ function openModal() {
     document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
+function closeStatusModal() {
     document.getElementById('closeTaskModal').classList.add('hidden');
     document.getElementById('closeTaskModal').classList.remove('flex');
     document.body.style.overflow = 'auto';
