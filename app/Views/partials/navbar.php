@@ -1,4 +1,4 @@
-<?= $this->include('partials/newTaskModal') ?>
+<?= $this->include('modals/newTaskModal') ?>
 <!DOCTYPE html>
 <html lang="en">
 

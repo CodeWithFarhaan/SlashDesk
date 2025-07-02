@@ -43,6 +43,11 @@ $routes->get('/taskCompleted', 'TaskCompleted::index');
 $routes->get('/taskUpdates', 'TaskUpdates::index');
 $routes->get('/newTaskModal', 'NewTaskModal::index');
 $routes->get('/viewTask', 'ViewTask::index');
+$routes->get('/statusModal', 'StatusModal::index');
+$routes->get('/dueDateModal', 'DueDateModal::index');
+$routes->get('/departmentModal', 'DepartmentModal::index');
+$routes->get('/assignedToModal', 'AssignedToModal::index');
+
 
 $routes->get('/ticketDashBoard', 'TicketDashBoard::index');
 $routes->get('/agentHistory', 'AgentHistory::index');

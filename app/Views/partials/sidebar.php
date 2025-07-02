@@ -1,4 +1,4 @@
-<?= $this->include('partials/newTaskModal') ?>
+<?= $this->include('modals/newTaskModal') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -184,7 +184,7 @@
             <p class="text-sm font-medium text-gray-900">Farru</p>
             <p class="text-xs text-gray-500">farhaan.chaudhary@slashrtc.com</p>
           </div>
-          <i class="fas fa-ellipsis-v text-gray-400 cursor-pointer" onclick="toggleDropdown()"></i>
+          <i class="fas fa-ellipsis-v text-gray-400 cursor-pointer" onclick="toggleDropdown('profileDropdown')"></i>
         </div>
 
         <!-- Popup Dropdown Menu -->

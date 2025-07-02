@@ -1,6 +1,6 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
-<?= $this->include('partials/newTaskModal') ?>
+<?= $this->include('modals/newTaskModal') ?>
 
 <div class="container mx-auto px-4 py-6 overflow-y-auto">
   <!-- Header Buttons -->

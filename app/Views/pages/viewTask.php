@@ -1,6 +1,10 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
-<?= $this->include('partials/newTaskModal') ?>
+<?= $this->include('modals/newTaskModal') ?>
+<?= $this->include('modals/statusModal') ?>
+<?= $this->include('modals/dueDateModal') ?>
+<?= $this->include('modals/departmentModal') ?>
+<?= $this->include('modals/assignedToModal') ?>
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
@@ -8,90 +12,90 @@
     <div class="">
       <div class="flex bg-gray-200 p-1">
         <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
-          <a href="/taskOpen">Open</a>
+          <a href="/taskOpen"><i class="fas fa-folder-open text-sm"></i> Open</a>
         </button>
         <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
-          <a href="/myTask">My Tasks</a>
+          <a href="/myTask"><i class="fas fa-user-check text-sm"></i> My Tasks</a>
         </button>
         <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
-          <a href="/taskCompleted">Completed</a>
+          <a href="/taskCompleted"><i class="fas fa-check-double text-sm"></i> Completed</a>
         </button>
         <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
-          <a href="/taskUpdates">Task Updates</a>
+          <a href="/taskUpdates"><i class="fas fa-sync-alt text-sm"></i> Task Updates</a>
         </button>
         <button class="navModal flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
-          New Task
+          <i class="fas fa-plus-circle text-sm"></i> New Task
         </button>
       </div>
     </div>
 
     <!-- main div -->
     <div class="bg-white rounded-lg shadow-lg">
-      <div class="bg-gray-300 text-white px-4 py-2 flex justify-between items-center">
+      <div class="bg-gradient-to-r from-purple-600 to-blue-700 text-white px-4 py-2 flex justify-between items-center">
         <div class="flex items-center space-x-3">
-          <i class="fas fa-tasks text-green-600">
+          <i class="fas fa-tasks text-white">
           </i>
-          <span class="font-semibold text-blue-600 text-2xl">
+          <span class="font-semibold text-white-600 text-2xl">
             Task #35773
             / Ticket #046314
           </span>
         </div>
 
-        <div class="flex space-x-4 relative">
-          <!-- Flag Dropdown -->
-          <div class="bg-white rounded-md shadow-md relative px-2 py-1">
-            <button onclick="toggleDropdown('dropdown1')" class="text-black px-2 py-1 rounded text-xs flex items-center">
-              <i class="fas fa-flag mr-2"></i>
-              <i class="fas fa-caret-down"></i>
-            </button>
-            <div id="dropdown1" class="px-4 py-2 hidden absolute mt-2 ml-[-3.25rem] bg-white shadow-md rounded text-sm z-10">
-              <div class="relative">
-                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
-                  <i class="fas fa-check-circle text-inherit transition-colors duration-200"></i>
-                  <span>Close</span>
-                </a>
+        <div class="flex space-x-3">
+            <!-- Flag Dropdown -->
+            <div class="relative">
+              <button onclick="toggleDropdown('dropdown1')" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm flex items-center space-x-2 transition-all duration-200">
+                <i class="fas fa-flag"></i>
+                <i class="fas fa-caret-down"></i>
+              </button>
+              <div id="dropdown1" class="hidden absolute right-0 mt-2 bg-white shadow-xl rounded-lg border border-gray-200 text-sm z-20 min-w-[120px]">
+                <div class="relative">
+                  <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors duration-200">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Close</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- User Dropdown -->
-          <div class="bg-white rounded-md shadow-md relative px-2 py-1">
-            <button onclick="toggleDropdown('dropdown2')" class="text-black px-2 py-1 rounded text-xs flex items-center">
-              <i class="fas fa-user mr-2"></i>
-              <i class="fas fa-caret-down"></i>
-            </button>
-            <div id="dropdown2" class="px-4 py-2 hidden absolute mt-2 ml-[-1.25rem] bg-white shadow-md rounded text-sm z-10">
-              <div class="relative">
-                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
-                  <i class="fas fa-check-circle text-inherit transition-colors duration-200"></i>
-                  <span>Claim</span>
-                </a>
-              </div>
-              <div class="relative">
-                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
-                  <i class="fas fa-user text-inherit transition-colors duration-200"></i>
-                  <span>Agent</span>
-                </a>
-              </div>  
-              <div class="relative">
-                <a href="#" class="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
-                  <i class="fas fa-users text-inherit transition-colors duration-200"></i>
-                  <span>Team</span>
-                </a>
+            <!-- User Dropdown -->
+            <div class="relative">
+              <button onclick="toggleDropdown('dropdown2')" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm flex items-center space-x-2 transition-all duration-200">
+                <i class="fas fa-user"></i>
+                <i class="fas fa-caret-down"></i>
+              </button>
+              <div id="dropdown2" class="hidden absolute right-0 mt-2 bg-white shadow-xl rounded-lg border border-gray-200 text-sm z-20 min-w-[140px]">
+                <div class="relative">
+                  <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">
+                    <i class="fas fa-hand-paper group-hover:scale-110 transition-transform duration-200"></i>
+                    <span>Claim</span>
+                  </a>
+                </div>
+                <div class="relative">
+                  <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200">
+                    <i class="fas fa-user"></i>
+                    <span>Agent</span>
+                  </a>
+                </div>
+                <div class="relative">
+                  <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-200">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Icon Buttons -->
-          <button class="bg-white rounded-md shadow-md text-black px-2 py-1 rounded text-xs">
-            <i class="fas fa-external-link-alt"></i>
-          </button>
-          <button class="bg-white rounded-md shadow-md text-black px-2 py-1 rounded text-xs">
-            <i class="fas fa-print"></i>
-          </button>
-          <button class="bg-white rounded-md shadow-md text-black px-2 py-1 rounded text-xs">
-            <i class="fas fa-edit"></i>
-          </button>
+            <!-- Action Buttons -->
+            <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm transition-all duration-200">
+              <i class="fas fa-external-link-alt"></i>
+            </button>
+            <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm transition-all duration-200">
+              <i class="fas fa-print"></i>
+            </button>
+            <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm transition-all duration-200">
+              <i class="fas fa-edit"></i>
+            </button>
         </div>
       </div>
 
@@ -111,7 +115,7 @@
                 Status:
               </span>
               <span class="text-sm text-blue-600">
-                Open
+                <a class="open-close-modal">Open</a>
               </span>
             </div>
             <div class="flex">
@@ -127,7 +131,7 @@
                 Due Date:
               </span>
               <span class="text-sm text-blue-600">
-                --None--
+                <a data-modal-toggle="update-due-date-modal">--None--</a>
               </span>
             </div>
           </div>
@@ -138,7 +142,7 @@
                 Department:
               </span>
               <span class="text-sm text-blue-600">
-                Customer Deliveries
+                <a onclick="openTransferModal(35773); return false;">Customer Deliveries</a>
               </span>
             </div>
             <div class="flex">
@@ -146,7 +150,7 @@
                 Assigned To:
               </span>
               <span class="text-sm text-blue-600">
-                hamza shaikh
+                <a class="openAssignedToModal">hamza shaikh</a>
               </span>
             </div>
             <div class="flex">
@@ -162,14 +166,14 @@
         <!-- Task Details Table -->
         <div class="mb-6 bg-white rounded-md p-4 shadow-lg">
           <h3 class="text-sm font-semibold text-gray-900 mb-3">
-            Task Details
+            <i class="fas fa-info-circle text-blue-600 mr-3"></i> Task Details
           </h3>
           <div class="bg-gray-50 border rounded">
             <table class="w-full text-sm">
               <tbody>
                 <tr class="border-b">
                   <td class="px-3 py-2 font-medium text-gray-600 w-32">
-                    Complexity:
+                    <i class="fas fa-layer-group text-slate-600"></i> Complexity:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     Low
@@ -177,7 +181,7 @@
                 </tr>
                 <tr class="border-b">
                   <td class="px-3 py-2 font-medium text-gray-600">
-                    Testing On:
+                    <i class="fas fa-vial text-slate-600"></i> Testing On:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     NA
@@ -185,7 +189,7 @@
                 </tr>
                 <tr class="border-b">
                   <td class="px-3 py-2 font-medium text-gray-600">
-                    Testing Status:
+                    <i class="fas fa-clipboard-check text-slate-600"></i> Testing Status:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     NA
@@ -193,7 +197,7 @@
                 </tr>
                 <tr class="border-b">
                   <td class="px-3 py-2 font-medium text-gray-600">
-                    Task Type:
+                    <i class="fas fa-code text-slate-600"></i> Task Type:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     Code Update
@@ -201,7 +205,7 @@
                 </tr>
                 <tr class="border-b">
                   <td class="px-3 py-2 font-medium text-gray-600" style="white-space: nowrap;">
-                    From Department:
+                    <i class="fas fa-arrow-right text-slate-600"></i> From Department:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     DevOps - Code Update
@@ -209,7 +213,7 @@
                 </tr>
                 <tr class="border-b">
                   <td class="px-3 py-2 font-medium text-gray-600">
-                    Misrouted:
+                    <i class="fas fa-route text-slate-600"></i> Misrouted:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     NA
@@ -217,7 +221,7 @@
                 </tr>
                 <tr>
                   <td class="px-3 py-2 font-medium text-gray-600" style="white-space: nowrap;">
-                    Information Missing:
+                    <i class="fas fa-exclamation-triangle text-slate-600"></i> Information Missing:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     NO
@@ -227,14 +231,47 @@
             </table>
           </div>
         </div>
+        
+        <!-- created comment section -->
+        <div class="border border-slate-200 rounded-lg overflow-hidden">
+          <div class="bg-blue-200 border-b px-3 py-2 flex flex-row justify-between space-x-3">
+            <div class="flex flex-row">
+              <div class="mx-3">
+                <span class="w-7 h-7 bg-gray-400 rounded-full flex items-center justify-center">
+                  <i class="fa fa-user text-gray-200" aria-hidden="true"></i>
+                </span>
+              </div>
+              <div>
+                <span class="text-sm font-medium text-gray-700">sanjana p</span>
+                <span class="text-xs text-gray-500">posted</span>
+                <span class="text-xs text-gray-500">6/19/25 1:53 PM</span>
+              </div>
+            </div>
+            <div>
+              <button class="ml-auto text-gray-400 hover:text-gray-600" aria-label="More options">
+                <i class="fas fa-ellipsis-h"></i>
+              </button>
+            </div>
+          </div>
+          <div id="editor" placeholder="Start writing your update here"></div>
+          <!-- Use a hidden div instead of textarea with embedded HTML -->
+          <div class="">
+            <div class="comment-content">
+              <p class="text-sm px-6 py-4 text-gray-700 overflow-x-auto m-0">
+                Hi team,<br><br>
+                We have received downtime on 22nd June at 1 a.m. (night) to update the code for Callback Prompt on Blinc 360 Instance.
+              </p>
+            </div>
+          </div>
+        </div>
 
         <!-- new comment section -->
-        <div class="border border-slate-200 rounded-lg overflow-hidden">
+        <div class="mt-3 border border-slate-200 rounded-lg overflow-hidden">
           <div class="bg-orange-200 border-b px-3 py-2 flex flex-row justify-between space-x-3">
             <div class="flex flex-row">
               <div class="mx-3">
-                <span class="w-7 h-7 bg-gray-300 rounded-full flex items-center justify-center">
-                  <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="w-7 h-7 bg-gray-400 rounded-full flex items-center justify-center">
+                  <i class="fa fa-user text-gray-200" aria-hidden="true"></i>
                 </span>
               </div>
               <div>
@@ -274,10 +311,10 @@
           <div class="max-w-4xl mb-4">
             <div class="flex bg-gray-200 rounded-lg p-1">
               <button id="postUpdateTab" class="flex-1 py-2 px-4 text-center rounded-md transition-colors tab-active" onclick="showCommentSection('update')">
-                Post Update
+                <i class="fas fa-paper-plane"></i> Post Update
               </button>
               <button id="postInternalNoteTab" class="flex-1 py-2 px-4 text-center rounded-md transition-colors tab-inactive" onclick="showCommentSection('internal')">
-                Post Internal Note
+                <i class="fas fa-sticky-note"></i> Post Internal Note
               </button>
             </div>
           </div>
@@ -358,7 +395,7 @@
             <div class="flex justify-between items-center mt-4">
               <div class="flex items-center space-x-2">
                 <label class="text-sm font-medium text-gray-600">
-                  Status:
+                  <i class="fas fa-flag text-slate-600"></i> Status:
                 </label>
                 <select class="border border-gray-300 rounded px-3 py-1 text-sm">
                   <option value="open">
@@ -374,7 +411,7 @@
                   Post Update
                 </button>
                 <button class="px-4 py-2 bg-gray-300 text-gray-700 rounded text-sm hover:bg-gray-400" onclick="resetCommentSection()">
-                  Reset
+                  <i class="fas fa-undo"></i> Reset
                 </button>
               </div>
             </div>

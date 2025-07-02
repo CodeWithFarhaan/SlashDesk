@@ -1,6 +1,6 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
-<?= $this->include('partials/newTaskModal') ?>
+<?= $this->include('modals/newTaskModal') ?>
 <!-- Dashboard Content -->
 <main class="flex-1 p-6 overflow-auto">
   <!-- Welcome Banner -->

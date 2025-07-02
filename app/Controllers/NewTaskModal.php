@@ -6,6 +6,6 @@ class NewTaskModal extends BaseController
 {
     public function index()
     {
-        return view('partials/newTaskModal'); 
+        return view('modals/newTaskModal'); 
     }
 }
