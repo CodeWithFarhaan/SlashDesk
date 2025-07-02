@@ -4,8 +4,7 @@
 <?= $this->include('modals/statusModal') ?>
 <?= $this->include('modals/dueDateModal') ?>
 <?= $this->include('modals/departmentModal') ?>
-<?= $this->include('modals/assignedToModal') ?>
-<?= $this->include('modals/collaboratorModal') ?>
+
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
@@ -151,7 +150,7 @@
                 Assigned To:
               </span>
               <span class="text-sm text-blue-600">
-                <a class="openAssignedToModal cursor-pointer">hamza shaikh</a>
+                <a class="open-reassign-modal cursor-pointer">hamza shaikh</a>
               </span>
             </div>
             <div class="flex">
