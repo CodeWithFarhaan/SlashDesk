@@ -4,7 +4,7 @@
 <?= $this->include('modals/statusModal') ?>
 <?= $this->include('modals/dueDateModal') ?>
 <?= $this->include('modals/departmentModal') ?>
-
+<?= $this->include('modals/assignedToModal') ?>
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">

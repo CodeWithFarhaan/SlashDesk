@@ -7,6 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
+  <!-- Added proper trigger button -->
+  <button onclick="openStatusModal()" class="open-close-modal m-4 px-4 py-2 bg-blue-500 text-white rounded">
+    Open Modal
+  </button>
+  
 <!-- Modal Backdrop -->
 <div id="closeTaskModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
     <!-- Modal Container -->
@@ -86,5 +91,48 @@
     </div>
 </div>
 </body>
-<script src="<?= base_url('assets/js/statusModal.js') ?>"></script>
+<script>
+function openStatusModal() {
+    document.getElementById('closeTaskModal').classList.remove('hidden');
+    document.getElementById('closeTaskModal').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeStatusModal() {
+    document.getElementById('closeTaskModal').classList.add('hidden');
+    document.getElementById('closeTaskModal').classList.remove('flex');
+    document.body.style.overflow = 'auto';
+    resetForm();
+}
+
+function resetForm() {
+    document.getElementById('closeTaskForm').reset();
+}
+
+// Close modal when clicking outside
+document.getElementById('closeTaskModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeStatusModal(); // Changed from closeModal() to closeStatusModal()
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeStatusModal(); // Changed from closeModal() to closeStatusModal()
+    }
+});
+
+// You can keep this for other modal triggers if needed
+document.addEventListener('DOMContentLoaded', function() {
+    // If you have multiple triggers with the same class
+    const modalTriggers = document.querySelectorAll('.open-close-modal');
+    modalTriggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    });
+});
+</script>
 </html>
