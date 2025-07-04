@@ -8,6 +8,6 @@ class Registration extends BaseController
 
     public function index(): string
     {
-        return view('pages/registration');
+        return view('pages/registration');;
     }
 }
