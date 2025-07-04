@@ -115,7 +115,7 @@
                 Status:
               </span>
               <span class="text-sm text-blue-600">
-                <a class="open-close-modal cursor-pointer">Open</a>
+                <a onclick="openStatusModal()" class="cursor-pointer">Open</a>
               </span>
             </div>
             <div class="flex">

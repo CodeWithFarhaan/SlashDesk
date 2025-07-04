@@ -6,12 +6,7 @@
     <title>Task Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-  <!-- Added proper trigger button -->
-  <button onclick="openStatusModal()" class="open-close-modal m-4 px-4 py-2 bg-blue-500 text-white rounded">
-    Open Modal
-  </button>
-  
+<body class="bg-gray-100">  
 <!-- Modal Backdrop -->
 <div id="closeTaskModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
     <!-- Modal Container -->
