@@ -5,6 +5,8 @@
 <?= $this->include('modals/dueDateModal') ?>
 <?= $this->include('modals/departmentModal') ?>
 <?= $this->include('modals/assignedToModal') ?>
+<?= $this->include('modals/collaboratorModal') ?>
+
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
@@ -158,7 +160,7 @@
                 Collaborators:
               </span>
               <span class="text-sm text-blue-600">
-                <a class="open-modal-btn cursor-pointer">Collaborators</a>
+                <a class="opencollaboratormodal cursor-pointer">Collaborators</a>
               </span>
             </div>
           </div>
@@ -324,7 +326,7 @@
             <!-- Collaborators section - add ID here -->
             <div id="collaboratorsSection" class="mb-3">
               <span class="text-sm font-medium text-blue-600">
-                <a class="open-modal-btn cursor-pointer">Collaborators</a>
+                <a class="opencollaboratormodal cursor-pointer">Collaborators</a>
               </span>
             </div>
             <!-- Rich Text Editor Toolbar -->
