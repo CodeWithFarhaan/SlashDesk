@@ -9,6 +9,8 @@
 <?= $this->include('modals/complexityModal') ?>
 <?= $this->include('modals/testedOnModal') ?>
 <?= $this->include('modals/testingStatusModal') ?>
+<?= $this->include('modals/taskTypeModal') ?>
+
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
@@ -204,7 +206,7 @@
                     <i class="fas fa-code text-slate-600"></i> Task Type:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    <a class="cursor-pointer">Code Update</a>
+                    <a onclick="openTaskTypeModal()" class="cursor-pointer">Code Update</a>
                   </td>
                 </tr>
                 <tr class="border-b">

@@ -51,6 +51,7 @@ $routes->get('/collaboratorModal', 'CollaboratorModal::index');
 $routes->get('/complexityModal', 'ComplexityModal::index');
 $routes->get('/testedOnModal', 'TestedOnModal::index');
 $routes->get('/testingStatusModal', 'TestingStatusModal::index');
+$routes->get('/taskTypeModal', 'TaskTypeModal::index');
 
 
 $routes->get('/ticketDashBoard', 'TicketDashBoard::index');
