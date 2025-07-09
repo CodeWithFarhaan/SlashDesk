@@ -6,7 +6,7 @@
 <?= $this->include('modals/departmentModal') ?>
 <?= $this->include('modals/assignedToModal') ?>
 <?= $this->include('modals/collaboratorModal') ?>
-
+<?= $this->include('modals/complexityModal') ?>
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
@@ -178,7 +178,7 @@
                     <i class="fas fa-layer-group text-slate-600"></i> Complexity:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    Low
+                    <a onclick="openComplexityModal()" class="cursor-pointer">Low</a>
                   </td>
                 </tr>
                 <tr class="border-b">
@@ -186,7 +186,7 @@
                     <i class="fas fa-vial text-slate-600"></i> Testing On:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    NA
+                    <a class="cursor-pointer">NA</a>
                   </td>
                 </tr>
                 <tr class="border-b">
@@ -194,7 +194,7 @@
                     <i class="fas fa-clipboard-check text-slate-600"></i> Testing Status:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    NA
+                    <a class="cursor-pointer">NA</a>
                   </td>
                 </tr>
                 <tr class="border-b">
@@ -202,7 +202,7 @@
                     <i class="fas fa-code text-slate-600"></i> Task Type:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    Code Update
+                    <a class="cursor-pointer">Code Update</a>
                   </td>
                 </tr>
                 <tr class="border-b">
@@ -210,7 +210,7 @@
                     <i class="fas fa-arrow-right text-slate-600"></i> From Department:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    DevOps - Code Update
+                    <a class="cursor-pointer">DevOps - Code Update</a>
                   </td>
                 </tr>
                 <tr class="border-b">
@@ -218,7 +218,7 @@
                     <i class="fas fa-route text-slate-600"></i> Misrouted:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    NA
+                    <a class="cursor-pointer">NA</a>
                   </td>
                 </tr>
                 <tr>
@@ -226,7 +226,7 @@
                     <i class="fas fa-exclamation-triangle text-slate-600"></i> Information Missing:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    NO
+                    <a class="cursor-pointer">NO</a>
                   </td>
                 </tr>
               </tbody>
