@@ -49,6 +49,7 @@ $routes->get('/departmentModal', 'DepartmentModal::index');
 $routes->get('/assignedToModal', 'AssignedToModal::index');
 $routes->get('/collaboratorModal', 'CollaboratorModal::index');
 $routes->get('/complexityModal', 'ComplexityModal::index');
+$routes->get('/testedOnModal', 'TestedOnModal::index');
 
 
 $routes->get('/ticketDashBoard', 'TicketDashBoard::index');
