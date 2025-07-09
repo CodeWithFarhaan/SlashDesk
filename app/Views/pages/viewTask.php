@@ -10,6 +10,9 @@
 <?= $this->include('modals/testedOnModal') ?>
 <?= $this->include('modals/testingStatusModal') ?>
 <?= $this->include('modals/taskTypeModal') ?>
+<?= $this->include('modals/fromDeptModal') ?>
+<?= $this->include('modals/misroutedModal') ?>
+<?= $this->include('modals/infoMissingModal') ?>
 
 
 <div class="overflow-y-auto">
@@ -214,7 +217,7 @@
                     <i class="fas fa-arrow-right text-slate-600"></i> From Department:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    <a class="cursor-pointer">DevOps - Code Update</a>
+                    <a onclick="openFromDepartmentModal()" class="cursor-pointer">DevOps - Code Update</a>
                   </td>
                 </tr>
                 <tr class="border-b">
@@ -222,7 +225,7 @@
                     <i class="fas fa-route text-slate-600"></i> Misrouted:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    <a class="cursor-pointer">NA</a>
+                    <a onclick="openMisroutedModal()" class="cursor-pointer">NA</a>
                   </td>
                 </tr>
                 <tr>
@@ -230,7 +233,7 @@
                     <i class="fas fa-exclamation-triangle text-slate-600"></i> Information Missing:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    <a class="cursor-pointer">NO</a>
+                    <a onclick="openInfoMissingModal()" class="cursor-pointer">NO</a>
                   </td>
                 </tr>
               </tbody>
