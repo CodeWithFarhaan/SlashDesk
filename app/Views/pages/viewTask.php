@@ -8,7 +8,7 @@
 <?= $this->include('modals/collaboratorModal') ?>
 <?= $this->include('modals/complexityModal') ?>
 <?= $this->include('modals/testedOnModal') ?>
-
+<?= $this->include('modals/testingStatusModal') ?>
 
 <div class="overflow-y-auto">
   <div class="container mx-auto px-4 py-6 overflow-hidden">
@@ -185,7 +185,7 @@
                 </tr>
                 <tr class="border-b">
                   <td class="px-3 py-2 font-medium text-gray-600">
-                    <i class="fas fa-vial text-slate-600"></i> Testing On:
+                    <i class="fas fa-vial text-slate-600"></i> Tested On:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
                     <a onclick="openTestedModal()" class="cursor-pointer">NA</a>
@@ -196,7 +196,7 @@
                     <i class="fas fa-clipboard-check text-slate-600"></i> Testing Status:
                   </td>
                   <td class="px-3 py-2 text-blue-600">
-                    <a class="cursor-pointer">NA</a>
+                    <a onclick="openTestingStatusModal()" class="cursor-pointer">NA</a>
                   </td>
                 </tr>
                 <tr class="border-b">
