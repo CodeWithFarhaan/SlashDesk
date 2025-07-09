@@ -51,7 +51,72 @@
                     </label>
                     <select name="assignee" id="assignee" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                         <option value="">— Select —</option>
-                        <option value="">Hie</option>
+                        <optgroup label="Agents">            
+                            <option value="s32">Aamir Chougule</option>
+                            <option value="s124">abhishek purohit</option>
+                            <option value="s69">Adnan Shaikh</option>
+                            <option value="s105">Ajay Vadadre</option>
+                            <option value="s123">akash khedkar</option>
+                            <option value="s117">akshay redkar</option>
+                            <option value="s13">Amaan Chhapra</option>
+                            <option value="s68">Anay Kachare</option>
+                            <option value="s107">Anupam Yadav</option>
+                            <option value="s99">Arbaj chaudhary</option>
+                            <option value="s67">Ashok Solanki</option>
+                            <option value="s110">Atul Shukla</option>
+                            <option value="s112">ayush nalawade</option>
+                            <option value="s4">Bilal Shaikh</option>
+                            <option value="s89">Depesh Bhoir</option>
+                            <option value="s125">dhananjay dubey</option>
+                            <option value="s94">Dipesh Ingle</option>
+                            <option value="s102">Farhaan Chaudhary</option>
+                            <option value="s103">farhin khan</option>
+                            <option value="s74">Hamed shaikh</option>
+                            <option value="s85">Hamza Shaikh</option>
+                            <option value="s100">Ibtesam Shaikh</option>
+                            <option value="s76">Imran Khan</option>
+                            <option value="s77">Irfan Ansari</option>
+                            <option value="s115">Irfan Shah</option>
+                            <option value="s19">Jameel Shaikh</option>
+                            <option value="s3">Jayesh Nambiar</option>
+                            <option value="s66">Kanishk Magare</option>
+                            <option value="s80">Krishna Maurya</option>
+                            <option value="s113">lakshdip Bandekar</option>
+                            <option value="s109">Majeet Shaikh</option>
+                            <option value="s84">Manav Pathak</option>
+                            <option value="s15">Mohammad Abbas</option>
+                            <option value="s91">Mohammad Nasim</option>
+                            <option value="s127">mohammed zahid</option>
+                            <option value="s72">Nilesh Chaurasiya</option>
+                            <option value="s121">pradeep prajapati</option>
+                            <option value="s59">Rahil Hargey</option>
+                            <option value="s111">rahul panda</option>
+                            <option value="s98">Rohit Deogharkar</option>
+                            <option value="s65">Rohit Sorte</option>
+                            <option value="s101">Sadaan Ansari</option>
+                            <option value="s20">Saeed Kazi</option>
+                            <option value="s106">Sahil Chilka</option>
+                            <option value="s60">Sahil Shaikh</option>
+                            <option value="s114">sanjana p</option>
+                            <option value="s12">Sanjana Patil</option>
+                            <option value="s5">Sarfaraz Shaikh</option>
+                            <option value="s118">satyanarayan vishwakarma</option>
+                            <option value="s83">Shahid M</option>
+                            <option value="s116">shailendra singh</option>
+                            <option value="s17">Shiraz Ansari</option>
+                            <option value="s126">shreedhar parab</option>
+                            <option value="s57">Sudhir Singh</option>
+                            <option value="s108">tushar arban</option>
+                            <option value="s6">Uwaiz Syed</option>
+                            <option value="s1">Vipul Parab</option>
+                            <option value="s2">Vivek Yadav</option>
+                            <option value="s119">Yash Mishra</option>
+                            <option value="s28">Zoheb Bakshi</option>
+                        </optgroup>            
+                        <optgroup label="Teams">            
+                            <option value="t2">Enterprices</option>
+                            <option value="t1">Level I Support</option>
+                        </optgroup>
                     </select>
                 </div>
 
