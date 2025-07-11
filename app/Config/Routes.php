@@ -10,9 +10,12 @@ $routes->get('/newTicket', 'NewTicket::index');
 
 $routes->get('/registration', 'Registration::index');
 $routes->post('/registration', 'Registration::registration');
+$routes->get('/logout', 'Registration::logout');
+
+
 
 $routes->get('/login', 'Login::index');
-// $routes->post('/login', 'Login::login');
+$routes->post('/login', 'Registration::login');
 
 $routes->get('/ticketStatus', 'TicketStatus::index');
 

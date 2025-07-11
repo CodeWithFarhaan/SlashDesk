@@ -1,5 +1,5 @@
 <?= $this->include('partials/sidebar') ?>
-<?= $this->include('partials/navbar') ?>
+<?= $this->include('partials/navbar') ?> 
 
 <div class="container mx-auto px-4 py-6 overflow-y-auto">
   <!-- Header Buttons -->
@@ -47,6 +47,7 @@
             clip-rule="evenodd" />
         </svg>
       </button>
+
 
     </div>
   </div>

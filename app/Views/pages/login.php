@@ -35,7 +35,7 @@
             <?php endif; ?>
 
             <!-- Login Form -->
-            <form id="loginForm" method="POST" class="space-y-6">
+            <form id="loginForm" action="<?=base_url('/login')?>" method="POST" class="space-y-6">
 
               <!-- Email Input -->
               <div>

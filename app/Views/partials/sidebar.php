@@ -181,8 +181,8 @@
             <i class="fas fa-user text-gray-600 text-sm px-3"></i>
           </div>
           <div class="flex-1">
-            <p class="text-sm font-medium text-gray-900">Farru</p>
-            <p class="text-xs text-gray-500">farhaan.chaudhary@slashrtc.com</p>
+            <p class="text-sm font-medium text-gray-900"><?= esc(session()->get('userData')['username'])?></p>
+            <p class="text-xs text-gray-500"><?= esc(session()->get('userData')['email'])?></p>
           </div>
           <i class="fas fa-ellipsis-v text-gray-400 cursor-pointer" onclick="toggleDropdown('profileDropdown')"></i>
         </div>
@@ -197,8 +197,8 @@
               <i class="fas fa-user text-gray-600 text-sm"></i>
             </div>
             <div>
-              <p class="text-sm font-medium text-gray-900">Farru</p>
-              <p class="text-xs text-gray-500">farhaan.chaudhary@slashrtc.com</p>
+              <p class="text-sm font-medium text-gray-900"><?= esc(session()->get('userData')['username'])?></p>
+              <p class="text-xs text-gray-500"><?= esc(session()->get('userData')['email'])?></p>
             </div>
           </div>
 

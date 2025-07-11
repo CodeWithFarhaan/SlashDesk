@@ -5,30 +5,17 @@ use CodeIgniter\API\ResponseTrait;
 class Registration extends BaseController
 {
     use ResponseTrait;
+    protected $session;
 
-    public function index(): string
-    {
+    public function __construct(){
+        $this->session = \Config\Services::session();
+    }
+
+    public function index(): string{
         return view('pages/registration');;
     }
 
     public function registration(){
-    	// Validate input first
-        $validation = \Config\Services::validation();
-        $validation->setRules([
-            'full_name' => 'required|min_length[3]',
-            'email' => 'required|valid_email',
-            'phone' => 'required',
-            'password' => 'required|min_length[6]',
-            'extension' => 'permit_empty'
-        ]);
-        if (!$validation->withRequest($this->request)->run()) {
-            return $this->response->setJSON([
-                'status' => false,
-                'message' => 'Validation failed',
-                'errors' => $validation->getErrors()
-            ])->setStatusCode(400);
-        }
-
         // Get cleaned input data
         $name = $this->request->getPost('full_name');
         $email = $this->request->getPost('email');   
@@ -37,7 +24,7 @@ class Registration extends BaseController
         $ext = $this->request->getPost('extension');
 
         $client = \Config\Services::curlrequest();
-        $url = "http://localhost:7888/api/auth/signup";
+        $url = "http://192.168.0.154:7888/api/auth/signup";
         try {
                 $response = $client->request('POST', $url, [
                     'headers' => [
@@ -45,7 +32,7 @@ class Registration extends BaseController
                         'Authorization' => 'Bearer your_api_token_here'
                     ],
                     'json' => [ // Use 'json' instead of 'body' for proper JSON encoding
-                        'name' => $name,
+                        'username' => $name,
                         'email' => $email,
                         'phone' => $phone,
                         'ext' => $ext,
@@ -57,17 +44,18 @@ class Registration extends BaseController
 
                 $responseBody = json_decode($response->getBody(), true);
                 $statusCode = $response->getStatusCode();
-
                 if ($statusCode >= 200 && $statusCode < 300) {
-                	print_r("successful response");
+
                     // Success response
-                    return $this->response->setJSON([
-                        'status' => true,
-                        'message' => 'Registration successful',
-                        'data' => $responseBody
-                    ]);
+                    // return $this->response->setJSON([
+                    //     'status' => true,
+                    //     'message' => 'Registration successful',
+                    //     'data' => $responseBody
+                    // ]);
+
+                    return redirect()->to('login');
                 } else {
-                	print_r("error_reporting");
+                	
                     // API returned an error
                     log_message('error', 'Registration API error: ' . $response->getBody());
                     return $this->response->setJSON([
@@ -78,10 +66,86 @@ class Registration extends BaseController
                 }
             } catch (\Exception $e) {
                 log_message('error', 'Registration exception: ' . $e->getMessage());
+                // print_r(e->getMessage());
                 return $this->response->setJSON([
                     'status' => false,
                     'message' => 'An error occurred while processing your request'
                 ])->setStatusCode(500);
             }
     }
+
+    public function login() {
+        // Get cleaned input data
+        $email = $this->request->getPost('email');     
+        $password = $this->request->getPost('password');   
+
+        $client = \Config\Services::curlrequest();
+        $url = "http://192.168.0.154:7888/api/auth/login";
+
+        try{
+            $response = $client->request('POST', $url, [
+                    'headers' => [
+                        'Accept' => 'application/json',
+                        'Authorization' => 'Bearer your_api_token_here'
+                    ],
+                    'json' => [ // Use 'json' instead of 'body' for proper JSON encoding
+                        'username' => $email,
+                        'email' => $email,
+                        'password' => $password
+                    ],
+                    'http_errors' => false // To handle HTTP errors manually
+                ]);
+
+                $responseBody = json_decode($response->getBody(), true);
+                $statusCode = $response->getStatusCode();
+
+                if ($statusCode >= 200 && $statusCode < 300) {
+
+                    // Success response
+                    // return $this->response->setJSON([
+                    //     'status' => true,
+                    //     'message' => 'Registration successful',
+                    //     'data' => $responseBody
+                    // ]);
+                    $sessionData = [
+                        'isLoggedIn' => true,
+                        'userData' => [
+                            'id' => $responseBody['data']['user']['id'],
+                            'username' => $responseBody['data']['user']['username'],
+                            'email' => $responseBody['data']['user']['email'],
+                            'phone' => $responseBody['data']['user']['phone'],
+                            'ext' => $responseBody['data']['user']['ext']
+                        ],
+                        'token' => $responseBody['data']['token'],
+                        'loginTime' => time()
+                    ];
+                    session()->set($sessionData);   
+                    return redirect()->to('dashboard');
+                } else {
+                    
+                    // API returned an error
+                    log_message('error', 'Registration API error: ' . $response->getBody());
+                    return $this->response->setJSON([
+                        'status' => false,
+                        'message' => $responseBody['message'] ?? 'Registration failed',
+                        'api_response' => $responseBody
+                    ])->setStatusCode($statusCode);
+                }
+
+        }catch(\Exception $e){
+            log_message('error', 'Registration exception: ' . $e->getMessage());
+            // print_r(e->getMessage());
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => 'An error occurred while processing your request'
+            ])->setStatusCode(500);
+        }
+    }
+
+    public function logout (){
+        if (session()->get('isLoggedIn')){
+            session()->getFlashdata('userData');
+        }
+    }
 }
+?>
