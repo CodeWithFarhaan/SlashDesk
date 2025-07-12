@@ -1,5 +1,5 @@
 <?= $this->include('layout/header') ?>
-<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+<div class="min-h-screen">
   <!-- Navigation Bar -->
   <nav class="bg-gradient-to-r from-purple-600 to-blue-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,6 +24,9 @@
   </nav>
    <!-- Main Content -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="fixed inset-0 -z-10">
+      <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+    </div>
     <!-- Messages Container -->
     <div class="w-[56 rem] mx-auto mb-4">
       <?php if (session()->getFlashdata('success')): ?>

@@ -1,7 +1,10 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
 <!-- Main Content Wrapper -->
-<div class="flex-1 bg-white p-6 overflow-auto">
+<div class="flex-1 p-6 overflow-auto relative">
+  <div class="fixed inset-0 -z-10">
+    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+  </div>
   <!-- Page Heading -->
   <h1 class="text-lg text-gray-500 font-semibold mb-2">Users Directory.</h1>
 

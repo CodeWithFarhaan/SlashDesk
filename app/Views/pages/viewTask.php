@@ -16,6 +16,9 @@
 
 
 <div class="overflow-y-auto">
+  <div class="fixed inset-0 -z-10">
+    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+  </div>
   <div class="container mx-auto px-4 py-6 overflow-hidden">
     <!-- Header -->
     <div class="">
@@ -429,7 +432,7 @@
       </div>
     </div>
     <!-- Footer -->
-    <div class="bg-gray-50 px-4 py-2 text-center text-xs text-gray-500 border-t">
+    <div class="px-4 py-2 text-center text-xs text-gray-500 border-t">
       Copyright © 2025 SlashRTC All Rights Reserved.
     </div>
   </div>

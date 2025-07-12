@@ -55,6 +55,7 @@ $routes->get('/taskTypeModal', 'TaskTypeModal::index');
 $routes->get('/fromDeptModal', 'FromDepartmentModal::index');
 $routes->get('/misroutedModal', 'MisroutedModal::index');
 $routes->get('/infoMissingModal', 'InfoMissingModal::index');
+$routes->get('/forgotPasswordModal', 'ForgotPasswordModal::index');
 
 
 $routes->get('/ticketDashBoard', 'TicketDashBoard::index');

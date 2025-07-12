@@ -1,6 +1,9 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
 <div class="flex-1 overflow-hidden">
+    <div class="fixed inset-0 -z-10">
+        <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+    </div>
     <!-- Header -->
     <div class="bg-white border-b border-gray-200 px-6 py-4">
         <div class="flex items-center justify-between">
@@ -31,7 +34,7 @@
     </div>
 
     <!-- Scrollable Content -->
-    <div class="flex-1 overflow-y-auto bg-gray-50">
+    <div class="flex-1 overflow-y-auto">
         <div class="p-6">
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-8">

@@ -2,7 +2,10 @@
 <?= $this->include('partials/navbar') ?>
 
 <!-- Main Content -->
-<main class="flex-1 p-6 md:p-8 overflow-auto bg-gray-50">
+<main class="flex-1 p-6 md:p-8 overflow-auto">
+  <div class="fixed inset-0 -z-10">
+    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+  </div>
   <!-- Header with Back Button -->
   <div class="flex items-center mb-8">
     <h1 class="text-2xl md:text-3xl font-bold text-gray-800 flex items-center">
@@ -83,8 +86,8 @@
 
       <div class="flex flex-col md:flex-row gap-4 items-start md:items-end">
         <div class="flex-1 w-full">
-          <label class="block text-sm font-medium text-gray-700 mb-1">User ID</label>
-          <input type="text" name="user_id" value="<?= session()->get('user_id') ?>" readonly
+          <label class="block text-sm font-medium text-gray-700 mb-1">UserName:<span class="text-red-500 ml-1">*</span></label>
+          <input type="text" name="username" value="Farru" readonly
             class="w-full px-4 py-3 border border-gray-200 bg-gray-100 rounded-lg text-gray-600 cursor-not-allowed">
         </div>
         <button type="button" onclick="openPasswordModal()"
