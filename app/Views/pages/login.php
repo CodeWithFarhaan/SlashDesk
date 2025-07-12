@@ -17,7 +17,7 @@
           <div class="max-w-md mx-auto w-full">
             <!-- Greeting -->
             <div class="text-center mb-8">
-              <h2 class="text-2xl font-bold text-slashdesk-pink mb-2">Hello Farru!</h2>
+              <h2 class="text-2xl font-bold text-slashdesk-pink mb-2">Hello!</h2>
               <p class="text-xl text-slashdesk-blue font-medium">Welcome to SlashDesk</p>
             </div>
 

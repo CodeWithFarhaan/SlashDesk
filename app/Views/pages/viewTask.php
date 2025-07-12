@@ -245,64 +245,70 @@
         </div>
         
         <!-- created comment section -->
-        <div class="border border-slate-200 rounded-lg overflow-hidden">
-          <div class="bg-blue-200 border-b px-3 py-2 flex flex-row justify-between space-x-3">
-            <div class="flex flex-row">
-              <div class="mx-3">
-                <span class="w-7 h-7 bg-gray-400 rounded-full flex items-center justify-center">
-                  <i class="fa fa-user text-gray-200" aria-hidden="true"></i>
-                </span>
-              </div>
-              <div>
-                <span class="text-sm font-medium text-gray-700">sanjana p</span>
-                <span class="text-xs text-gray-500">posted</span>
-                <span class="text-xs text-gray-500">6/19/25 1:53 PM</span>
-              </div>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <div class="bg-blue-100 border-b px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-sm font-medium text-gray-800">sanjana p</span>
+                        <span class="text-sm text-gray-600 ml-1">posted</span>
+                        <span class="text-sm text-gray-600 ml-1">7/8/25 9:39 AM</span>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down text-gray-500 text-sm"></i>
             </div>
-            <div>
-              <button class="ml-auto text-gray-400 hover:text-gray-600" aria-label="More options">
-                <i class="fas fa-ellipsis-h"></i>
-              </button>
+            <div class="p-4">
+                <p class="text-sm text-gray-700 mb-4">
+                  Hi team,<br><br>
+                  We have received downtime on 22nd June at 1 a.m. (night) to update the code for Callback Prompt on Blinc 360 Instance.
+                </p>
             </div>
-          </div>
-          <div id="editor" placeholder="Start writing your update here"></div>
-          <!-- Use a hidden div instead of textarea with embedded HTML -->
-          <div class="">
-            <div class="comment-content">
-              <p class="text-sm px-6 py-4 text-gray-700 overflow-x-auto m-0">
-                Hi team,<br><br>
-                We have received downtime on 22nd June at 1 a.m. (night) to update the code for Callback Prompt on Blinc 360 Instance.
-              </p>
+        </div>
+        <!-- Activity items -->
+        <div class="space-y-3 mt-6 ml-4">
+            <!-- Created by activity -->
+            <div class="flex items-center space-x-3 text-sm text-gray-600">
+                <i class="fas fa-edit text-gray-400"></i>
+                <span>Created by</span>
+                <div class="w-5 h-5 bg-gray-300 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-white text-xs"></i>
+                </div>
+                <span class="font-medium text-gray-800">sanjana p</span>
+                <span>7/8/25 9:39 AM</span>
             </div>
-          </div>
+
+            <!-- Assignment activity -->
+            <div class="flex items-center space-x-3 text-sm text-gray-600">
+                <i class="fas fa-user-check text-gray-400"></i>
+                <div class="w-5 h-5 bg-gray-300 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-white text-xs"></i>
+                </div>
+                <span class="font-medium text-gray-800">Kanishk Magare</span>
+                <span>assigned this to</span>
+                <span class="font-medium text-gray-800">hamza shaikh</span>
+                <span>7/8/25 11:11 AM</span>
+            </div>
         </div>
 
         <!-- new comment section -->
-        <div class="mt-3 border border-slate-200 rounded-lg overflow-hidden">
-          <div class="bg-orange-200 border-b px-3 py-2 flex flex-row justify-between space-x-3">
-            <div class="flex flex-row">
-              <div class="mx-3">
-                <span class="w-7 h-7 bg-gray-400 rounded-full flex items-center justify-center">
-                  <i class="fa fa-user text-gray-200" aria-hidden="true"></i>
-                </span>
-              </div>
-              <div>
-                <span class="text-sm font-medium text-gray-700">hamza shaikh</span>
-                <span class="text-xs text-gray-500">posted</span>
-                <span class="text-xs text-gray-500">6/25/25 12:40 AM</span>
-              </div>
+        <div class="mt-6 bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <div class="bg-orange-100 border-b px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-sm font-medium text-gray-800">hamza shaikh</span>
+                        <span class="text-sm text-gray-600 ml-1">posted</span>
+                        <span class="text-sm text-gray-600 ml-1">7/8/25 12:40 AM</span>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down text-gray-500 text-sm"></i>
             </div>
-            <div>
-              <button class="ml-auto text-gray-400 hover:text-gray-600" aria-label="More options">
-                <i class="fas fa-ellipsis-h"></i>
-              </button>
-            </div>
-          </div>
-          <div id="editor" placeholder="Start writing your update here"></div>
-          <!-- Use a hidden div instead of textarea with embedded HTML -->
-          <div class="">
-            <div class="comment-content">
-              <p class="text-sm px-6 py-4 text-gray-700 overflow-x-auto m-0">
+            <div class="p-4">
+                <p class="text-sm text-gray-700 mb-4 overflow-x-auto">
                 Hi team,<br><br>
                 Kindly find below Branch Details:<br><br>
                 ServiceName :: WebApp<br>
@@ -315,9 +321,7 @@
                 Required Text: Churn is restricted for selected connected disposition
               </p>
             </div>
-          </div>
         </div>
-
         <!-- Tab Navigation for Post Update/Internal Note -->
         <div class="border-t pt-4">
           <div class="max-w-4xl mb-4">
