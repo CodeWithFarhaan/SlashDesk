@@ -7,18 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+
 <!-- Modal Backdrop -->
-<div class="modal-backdrop fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="closeModal()"></div>
+<div class="assigned-modal-backdrop fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
 
 <!-- Modal Container -->
 <div class="reassign-modal fixed inset-0 flex items-center justify-center hidden z-50">
-    <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
         <!-- Modal Header -->
         <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-blue-50">
             <h3 class="text-lg font-medium text-blue-700">
                 Task #35773: Reassign
             </h3>
-            <button type="button" class="text-gray-400 hover:text-gray-600 transition-colors" onclick="closeModal()">
+            <button type="button" class="text-gray-400 hover:text-gray-600 transition-colors" onclick="closeAssignedModal()">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -50,7 +51,72 @@
                     </label>
                     <select name="assignee" id="assignee" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                         <option value="">— Select —</option>
-                        <option value="">Hie</option>
+                        <optgroup label="Agents">            
+                            <option value="s32">Aamir Chougule</option>
+                            <option value="s124">abhishek purohit</option>
+                            <option value="s69">Adnan Shaikh</option>
+                            <option value="s105">Ajay Vadadre</option>
+                            <option value="s123">akash khedkar</option>
+                            <option value="s117">akshay redkar</option>
+                            <option value="s13">Amaan Chhapra</option>
+                            <option value="s68">Anay Kachare</option>
+                            <option value="s107">Anupam Yadav</option>
+                            <option value="s99">Arbaj chaudhary</option>
+                            <option value="s67">Ashok Solanki</option>
+                            <option value="s110">Atul Shukla</option>
+                            <option value="s112">ayush nalawade</option>
+                            <option value="s4">Bilal Shaikh</option>
+                            <option value="s89">Depesh Bhoir</option>
+                            <option value="s125">dhananjay dubey</option>
+                            <option value="s94">Dipesh Ingle</option>
+                            <option value="s102">Farhaan Chaudhary</option>
+                            <option value="s103">farhin khan</option>
+                            <option value="s74">Hamed shaikh</option>
+                            <option value="s85">Hamza Shaikh</option>
+                            <option value="s100">Ibtesam Shaikh</option>
+                            <option value="s76">Imran Khan</option>
+                            <option value="s77">Irfan Ansari</option>
+                            <option value="s115">Irfan Shah</option>
+                            <option value="s19">Jameel Shaikh</option>
+                            <option value="s3">Jayesh Nambiar</option>
+                            <option value="s66">Kanishk Magare</option>
+                            <option value="s80">Krishna Maurya</option>
+                            <option value="s113">lakshdip Bandekar</option>
+                            <option value="s109">Majeet Shaikh</option>
+                            <option value="s84">Manav Pathak</option>
+                            <option value="s15">Mohammad Abbas</option>
+                            <option value="s91">Mohammad Nasim</option>
+                            <option value="s127">mohammed zahid</option>
+                            <option value="s72">Nilesh Chaurasiya</option>
+                            <option value="s121">pradeep prajapati</option>
+                            <option value="s59">Rahil Hargey</option>
+                            <option value="s111">rahul panda</option>
+                            <option value="s98">Rohit Deogharkar</option>
+                            <option value="s65">Rohit Sorte</option>
+                            <option value="s101">Sadaan Ansari</option>
+                            <option value="s20">Saeed Kazi</option>
+                            <option value="s106">Sahil Chilka</option>
+                            <option value="s60">Sahil Shaikh</option>
+                            <option value="s114">sanjana p</option>
+                            <option value="s12">Sanjana Patil</option>
+                            <option value="s5">Sarfaraz Shaikh</option>
+                            <option value="s118">satyanarayan vishwakarma</option>
+                            <option value="s83">Shahid M</option>
+                            <option value="s116">shailendra singh</option>
+                            <option value="s17">Shiraz Ansari</option>
+                            <option value="s126">shreedhar parab</option>
+                            <option value="s57">Sudhir Singh</option>
+                            <option value="s108">tushar arban</option>
+                            <option value="s6">Uwaiz Syed</option>
+                            <option value="s1">Vipul Parab</option>
+                            <option value="s2">Vivek Yadav</option>
+                            <option value="s119">Yash Mishra</option>
+                            <option value="s28">Zoheb Bakshi</option>
+                        </optgroup>            
+                        <optgroup label="Teams">            
+                            <option value="t2">Enterprices</option>
+                            <option value="t1">Level I Support</option>
+                        </optgroup>
                     </select>
                 </div>
 
@@ -76,74 +142,76 @@
 
         <!-- Modal Footer -->
         <div class="flex justify-between items-center p-4 border-t border-gray-200 bg-gray-50">
-            <button type="button" onclick="resetForm()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+            <button type="button" onclick="resetAssignedForm()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
                 Reset
             </button>
             <div class="flex space-x-2">
-                <button type="button" onclick="closeModal()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                <button type="button" onclick="closeAssignedModal()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
                     Cancel
                 </button>
-                <button type="button" onclick="submitForm()" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                <button type="button" onclick="submitAssignedForm()" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
                     Assign
                 </button>
             </div>
         </div>
     </div>
 </div>
-</body>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Add click event to all elements with 'open-reassign-modal' class
-    const triggers = document.querySelectorAll('.open-reassign-modal');
-    triggers.forEach(function(trigger) {
-        trigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal();
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add click event to all elements with 'open-reassign-modal' class
+        const triggers = document.querySelectorAll('.open-reassign-modal');
+        triggers.forEach(function(trigger) {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                openAssignedModal();
+            });
         });
     });
-});
 
-function openModal() {
-    document.querySelector('.modal-backdrop').classList.remove('hidden');
-    document.querySelector('.reassign-modal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    document.querySelector('.modal-backdrop').classList.add('hidden');
-    document.querySelector('.reassign-modal').classList.add('hidden');
-    document.body.style.overflow = 'auto';
-}
-
-function resetForm() {
-    document.getElementById('reassignForm').reset();
-}
-
-function submitForm() {
-    const form = document.getElementById('reassignForm');
-    const assignee = form.querySelector('[name="assignee"]').value;
-    
-    if (!assignee) {
-        alert('Please select an assignee');
-        return;
+    function openAssignedModal() {
+        document.querySelector('.assigned-modal-backdrop').classList.remove('hidden');
+        document.querySelector('.reassign-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
     }
-    
-    // You can add additional validation here
-    form.submit();
-}
 
-// Close modal when clicking outside
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('modal-backdrop')) {
-        closeModal();
+    function closeAssignedModal() {
+        document.querySelector('.assigned-modal-backdrop').classList.add('hidden');
+        document.querySelector('.reassign-modal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
     }
-});
 
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeModal();
+    function resetAssignedForm() {
+        document.getElementById('reassignForm').reset();
     }
-});
+
+    function submitAssignedForm() {
+        const form = document.getElementById('reassignForm');
+        const assignee = form.querySelector('[name="assignee"]').value;
+        
+        if (!assignee) {
+            alert('Please select an assignee');
+            return;
+        }
+        
+        // You can add additional validation here
+        form.submit();
+    }
+
+    // Close modal when clicking on backdrop
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('assigned-modal-backdrop')) {
+            closeAssignedModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !document.querySelector('.reassign-modal').classList.contains('hidden')) {
+            closeAssignedModal();
+        }
+    });
 </script>
+
+</body>
 </html>

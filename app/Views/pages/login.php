@@ -1,9 +1,10 @@
 <?= $this->include('layout/header') ?>
+<?= $this->include('modals/forgotPasswordModal') ?>
 <!-- Main Content -->
 <main class="flex-1">
   <div
-    class="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 flex items-center justify-center px-20">
-    <div class="bg-white rounded-2xl shadow-2xl px-16 py-16">
+    class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-pink-500 flex items-center justify-center px-20">
+    <div class="bg-white rounded-2xl shadow-2xl px-14 py-14">
       <div class="flex flex-col lg:flex-row">
         <!-- Left Side - Image -->
         <div class="lg:w-1/2 rounded-lg">
@@ -16,7 +17,7 @@
           <div class="max-w-md mx-auto w-full">
             <!-- Greeting -->
             <div class="text-center mb-8">
-              <h2 class="text-2xl font-bold text-slashdesk-pink mb-2">Hello Farru!</h2>
+              <h2 class="text-2xl font-bold text-slashdesk-pink mb-2">Hello!</h2>
               <p class="text-xl text-slashdesk-blue font-medium">Welcome to SlashDesk</p>
             </div>
 
@@ -54,6 +55,9 @@
                 class="w-full bg-gradient-to-r from-slashdesk-blue to-slashdesk-purple text-white py-3 px-4 rounded-lg font-medium hover:from-slashdesk-purple hover:to-slashdesk-blue transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slashdesk-blue">
                 <a href="/dashboard">Login</a>
               </button>
+              <div class="frg-pswd">
+                <a class="forgotPasswordBtn text-blue-600" href="#">Forgot Password?</a>
+              </div>
             </form>
           </div>
         </div>

@@ -22,7 +22,10 @@
 </nav>
 
 <!-- Main Content -->
-<div class="bg-gradient-to-br from-blue-50 to-indigo-50 py-12 overflow-y-auto">
+<div class="py-12 overflow-y-auto">
+  <div class="fixed inset-0 -z-10">
+    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+  </div>
   <div class="w-[50rem] mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Login Card with rotated header -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden flex">

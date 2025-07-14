@@ -16,7 +16,6 @@
   "type": "commonjs",
   "dependencies": {
     "browserslist": "^4.25.0",
-    "caniuse-lite": "^1.0.30001723",
     "electron-to-chromium": "^1.5.167",
     "escalade": "^3.2.0",
     "fraction.js": "^4.3.7",

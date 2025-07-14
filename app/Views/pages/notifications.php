@@ -2,12 +2,15 @@
 <?= $this->include('partials/navbar') ?>
 <!-- Main Content Area (Scrollable) -->
 <div class="flex-1 overflow-y-auto">
+    <div class="fixed inset-0 -z-10">
+        <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+    </div>
     <div class="p-6 max-w-6xl mx-auto">
         <!-- Page Header -->
         <div class="mb-6">
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-3xl font-bold text-purple-400">Notifications</h1>
+                    <h1 class="text-3xl font-bold text-red-600">Notifications</h1>
                     <p class="text-gray-600 mt-1">Stay updated with your helpdesk activities</p>
                 </div>
                 <div class="flex items-center space-x-3">

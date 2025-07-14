@@ -1,6 +1,9 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
-<div class="flex-1 bg-gray-50 overflow-hidden">
+<div class="flex-1 overflow-hidden">
+  <div class="fixed inset-0 -z-10">
+    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
+  </div>
   <!-- Main Content -->
   <div class="px-6 py-8 h-[calc(100vh-64px)] overflow-y-auto">
     <!-- Tabs -->
@@ -17,7 +20,7 @@
         </button>
       </div>
     </div>
-    <div class="flex-1 p-6 bg-gray-50">
+    <div class="flex-1 p-6">
       <!-- Tabs -->
       <div class="bg-white rounded-lg shadow-sm">
         <!-- Content Area -->
