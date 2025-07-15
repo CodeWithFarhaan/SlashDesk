@@ -52,14 +52,14 @@
             </form>
         </div>
 
-        <!-- Step 2: OTP Verification and Password Reset -->
+        <!-- Step 2: OTP Verification -->
         <div id="step2" class="p-6 hidden">
             <div class="mb-4">
-                <p class="text-gray-600 text-sm mb-4">We've sent an OTP to <span id="emailDisplay" class="font-medium text-gray-800"></span>. Enter the OTP and your new password below.</p>
+                <p class="text-gray-600 text-sm mb-4">We've sent an OTP to <span id="emailDisplay" class="font-medium text-gray-800"></span>.</p>
             </div>
                             
-            <form id="resetForm">
-                <div class="mb-4">
+            <form id="otpForm">
+                <div class="mb-6">
                     <label for="otp" class="block text-sm font-medium text-gray-700 mb-2">Enter OTP</label>
                     <input                             
                         type="text"                             
@@ -72,6 +72,45 @@
                     >
                 </div>
                                     
+                <div class="flex space-x-3">
+                    <button                             
+                        type="button"
+                        id="backBtn"
+                        class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                    >
+                        Back
+                    </button>
+                    <button                             
+                        type="submit"
+                        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center"
+                        id="verifyOtpBtn"
+                    >
+                        <span id="verifyOtpText">Verify OTP</span>
+                        <svg id="verifyOtpLoader" class="animate-spin -mr-1 ml-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+                            
+            <div class="mt-4 text-center">
+                <button                         
+                    id="resendOtp"
+                    class="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
+                >
+                    Didn't receive OTP? Resend
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: New Password -->
+        <div id="step3" class="p-6 hidden">
+            <div class="mb-4">
+                <p class="text-gray-600 text-sm mb-4">Please enter your new password below.</p>
+            </div>
+                            
+            <form id="resetForm">
                 <div class="mb-4">
                     <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-2">New Password</label>
                     <input                             
@@ -101,7 +140,7 @@
                 <div class="flex space-x-3">
                     <button                             
                         type="button"
-                        id="backBtn"
+                        id="backToOtpBtn"
                         class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200"
                     >
                         Back
@@ -119,15 +158,6 @@
                     </button>
                 </div>
             </form>
-                            
-            <div class="mt-4 text-center">
-                <button                         
-                    id="resendOtp"
-                    class="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
-                >
-                    Didn't receive OTP? Resend
-                </button>
-            </div>
         </div>
 
         <!-- Success Message -->
@@ -160,10 +190,13 @@
         const closeModal = document.getElementById('closeModal');
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
+        const step3 = document.getElementById('step3');
         const successMessage = document.getElementById('successMessage');
         const emailForm = document.getElementById('emailForm');
+        const otpForm = document.getElementById('otpForm');
         const resetForm = document.getElementById('resetForm');
         const backBtn = document.getElementById('backBtn');
+        const backToOtpBtn = document.getElementById('backToOtpBtn');
         const resendOtp = document.getElementById('resendOtp');
         const closeSuccessBtn = document.getElementById('closeSuccessBtn');
 
@@ -190,9 +223,11 @@
                 // Reset to step 1
                 step1.classList.remove('hidden');
                 step2.classList.add('hidden');
+                step3.classList.add('hidden');
                 successMessage.classList.add('hidden');
                 // Reset forms
                 emailForm.reset();
+                otpForm.reset();
                 resetForm.reset();
             }, 300);
         }
@@ -241,23 +276,50 @@
             }, 2000);
         });
 
-        // Step 2: Reset Form Submission
-        resetForm.addEventListener('submit', async (e) => {
+        // Step 2: OTP Form Submission
+        otpForm.addEventListener('submit', async (e) => {
             e.preventDefault();
                         
             const otp = document.getElementById('otp').value;
+                        
+            // Validate OTP (simple validation)
+            if (otp.length !== 6) {
+                showToast('Please enter a valid 6-digit OTP', 'error');
+                return;
+            }
+                        
+            const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+            const verifyOtpText = document.getElementById('verifyOtpText');
+            const verifyOtpLoader = document.getElementById('verifyOtpLoader');
+                        
+            // Show loading state
+            verifyOtpBtn.disabled = true;
+            verifyOtpText.textContent = 'Verifying...';
+            verifyOtpLoader.classList.remove('hidden');
+                        
+            // Simulate API call
+            setTimeout(() => {
+                // Hide loading state
+                verifyOtpBtn.disabled = false;
+                verifyOtpText.textContent = 'Verify OTP';
+                verifyOtpLoader.classList.add('hidden');
+                                
+                // Show step 3
+                step2.classList.add('hidden');
+                step3.classList.remove('hidden');
+            }, 2000);
+        });
+
+        // Step 3: Reset Form Submission
+        resetForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+                        
             const newPassword = document.getElementById('newPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
                         
             // Validate passwords match
             if (newPassword !== confirmPassword) {
                 showToast('Passwords do not match', 'error');
-                return;
-            }
-                        
-            // Validate OTP (simple validation)
-            if (otp.length !== 6) {
-                showToast('Please enter a valid 6-digit OTP', 'error');
                 return;
             }
                         
@@ -278,15 +340,20 @@
                 resetPasswordLoader.classList.add('hidden');
                                 
                 // Show success message
-                step2.classList.add('hidden');
+                step3.classList.add('hidden');
                 successMessage.classList.remove('hidden');
             }, 2000);
         });
 
-        // Back Button
+        // Back Buttons
         backBtn.addEventListener('click', () => {
             step2.classList.add('hidden');
             step1.classList.remove('hidden');
+        });
+
+        backToOtpBtn.addEventListener('click', () => {
+            step3.classList.add('hidden');
+            step2.classList.remove('hidden');
         });
 
         // Resend OTP
