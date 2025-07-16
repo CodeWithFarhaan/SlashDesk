@@ -42,37 +42,19 @@
           <th class="px-6 py-3">Updated</th>
         </tr>
       </thead>
-
+      <?php // print_r($responseBody['data']) ?>
       <tbody class="divide-y">
-        <tr class="hover:bg-yellow-100 bg-blue-50">
+        <?php foreach ($responseBody['data'] as $key => $value) { ?>
+        <tr class="hover:bg-yellow-100 <?= $key%2==0 ? 'bg-white' : 'bg-blue-50' ?>">
           <td class="px-4 py-4">
             <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
           </td>
-          <td class="px-6 py-4 text-blue-600">"Jotiba Patil"</td>
-          <td class="px-6 py-4">Guest</td>
-          <td class="px-6 py-4">11/10/23</td>
-          <td class="px-6 py-4">12/26/23 9:53 AM</td>
-        </tr>
-
-        <tr class="hover:bg-yellow-100 bg-white">
-          <td class="px-4 py-4">
-            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
-          </td>
-          <td class="px-6 py-4 text-blue-600">"abhishek chatterjee"</td>
-          <td class="px-6 py-4">Guest</td>
+          <td class="px-6 py-4 text-blue-600"><?php echo($value['username']) ?></td>
+          <td class="px-6 py-4"><?php isset($value['role']) ? print_r($value['role']) : print_r("Guest") ?></td>
           <td class="px-6 py-4">4/8/23</td>
           <td class="px-6 py-4">11/9/23 9:33 AM</td>
         </tr>
-
-        <tr class="hover:bg-yellow-100 bg-blue-50">
-          <td class="px-4 py-4">
-            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600">
-          </td>
-          <td class="px-6 py-4 text-blue-600">"Aafaque Malik"</td>
-          <td class="px-6 py-4">Guest</td>
-          <td class="px-6 py-4">7/30/24</td>
-          <td class="px-6 py-4">8/8/24 12:04 PM</td>
-        </tr>
+      <?php } ?>
       </tbody>
     </table>
   </div>

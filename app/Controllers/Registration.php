@@ -24,7 +24,7 @@ class Registration extends BaseController
         $ext = $this->request->getPost('extension');
 
         $client = \Config\Services::curlrequest();
-        $url = "http://192.168.0.154:7888/api/auth/signup";
+        $url = env("URL_BACKEND")."/auth/signup";
         try {
                 $response = $client->request('POST', $url, [
                     'headers' => [
@@ -80,7 +80,7 @@ class Registration extends BaseController
         $password = $this->request->getPost('password');   
 
         $client = \Config\Services::curlrequest();
-        $url = "http://192.168.0.154:7888/api/auth/login";
+        $url = env("URL_BACKEND")."/auth/login";
 
         try{
             $response = $client->request('POST', $url, [
@@ -142,10 +142,27 @@ class Registration extends BaseController
         }
     }
 
-    public function logout (){
-        if (session()->get('isLoggedIn')){
-            session()->getFlashdata('userData');
+    public function logout() {
+        // Get session service
+        $session = session();
+        
+        // Add logout activity to logs if needed
+        if ($session->has('userData')) {
+            $userId = $session->get('userData')['id'] ?? 'unknown';
+            log_message('info', "User {$userId} logged out");
         }
+        
+        // Destroy the session
+        $session->destroy();
+        
+        // Clear any remember me cookies if you have them
+        // helper('cookie');
+        // delete_cookie('remember_token');
+        
+        // Redirect with flash message
+        return redirect()->to('login')
+            ->with('status', 'success')
+            ->with('message', 'You have been successfully logged out');
     }
 }
 ?>

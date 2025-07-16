@@ -6,8 +6,11 @@ class MyTicket extends BaseController
 {
     public function index()
     {
+        if (!session()->get('isLoggedIn') || !session()->get('token')) {
+            return redirect()->to('login');
+        }
     	$client = \Config\Services::curlrequest();
-        $url = "http://192.168.0.154:7888/api/ticket/tickets";
+        $url = env("URL_BACKEND")."/ticket/tickets";
 
         try{
         	$response = $client->request('GET', $url, [
@@ -27,8 +30,8 @@ class MyTicket extends BaseController
 
             	return view('pages/myTicket',$data);
             }else{
-            	print_r(substr(session()->get('token'),0,));
-            
+            	// print_r(substr(session()->get('token'),0,));        
+                print_r($responseBody);
             }
         }catch(\Exception $e){
         	log_message('error', 'Registration exception: ' . $e->getMessage());

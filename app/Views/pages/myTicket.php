@@ -82,13 +82,14 @@
       </thead>
       <tbody class="divide-y">
         <!-- Row 1 -->
+        <?php foreach ($responseBody['message'] as $key => $value) { ?>
         <tr>
           <td class="p-3"><input type="checkbox" /></td>
-          <td class="p-3 text-blue-600 hover:underline cursor-pointer">062796</td>
-          <td class="p-3 text-gray-600">5/6/25 6:19 PM</td>
+          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><?php echo(substr($value['id'],-7)) ?> </td>
+          <td class="p-3 text-gray-600"><?php echo(date("d M y h:i A", (int) $value['updated_at'])) ?></td>
           <td class="p-3">
             <div class="flex space-x-2">
-              <a href="#" class="text-blue-600 hover:underline">Anamtech - PBX Installation</a>
+              <a href="#" class="text-blue-600 hover:underline"><?php echo($value['title']) ?></a>
               <span class="text-xs ml-1">(10)</span>
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -96,13 +97,22 @@
               </svg>
             </div>
           </td>
-          <td class="p-3">Sarfaraz Shaikh</td>
+          <td class="p-3"><?php echo(substr($value['created_by'],-10)) ?></td>
           <td class="p-3">
+            <?php if ($value['priority'] === "high") { ?>      
             <span
               class="inline-block px-3 py-1 text-xs font-semibold text-red-600 border border-red-400 rounded-full">High</span>
+            <?php } else if($value['priority'] === "medium") { ?>
+            <span
+              class="inline-block px-3 py-1 text-xs font-semibold text-gray-600 border border-gray-400 rounded-full">Medium</span>
+            <?php } else { ?>
+              <span
+              class="inline-block px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-400 rounded-full">Low</span>
+            <?php  } ?>
           </td>
-          <td class="p-3">Presales</td>
+          <td class="p-3"><?php print_r(substr($value['department_id'],-10)) ?> </td>
         </tr>
+      <?php } ?>
       </tbody>
     </table>
   </div>

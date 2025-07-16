@@ -218,7 +218,7 @@
             </li>
             <li class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
               <i class="fas fa-sign-out-alt text-gray-500 mr-3 w-4 text-base"></i>
-              <a href="/">Logout</a>
+              <a href="<?= base_url('logout') ?>">Logout</a>
             </li>
           </ul>
         </div>
