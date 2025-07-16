@@ -176,67 +176,67 @@
           </div>
         </div>
         <!-- Task Details Table -->
-        <div class="mb-6 bg-white rounded-md p-4 shadow-lg">
-          <h3 class="text-sm font-semibold text-gray-900 mb-3">
+        <div class="mb-6 bg-gray-50 rounded-xl p-6 shadow-sm">
+          <h3 class="text-md font-semibold text-gray-800 mb-4 flex items-center">
             <i class="fas fa-info-circle text-blue-600 mr-3"></i> Task Details
           </h3>
-          <div class="bg-gray-50 border rounded">
+          <div class="bg-white border rounded-lg overflow-hidden">
             <table class="w-full text-sm">
               <tbody>
-                <tr class="border-b">
-                  <td class="px-3 py-2 font-medium text-gray-600 w-32">
-                    <i class="fas fa-layer-group text-slate-600"></i> Complexity:
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-600 w-32">
+                    <i class="fas fa-layer-group text-gray-500 mr-2"></i> Complexity:
                   </td>
-                  <td class="px-3 py-2 text-blue-600">
-                    <a onclick="openComplexityModal()" class="cursor-pointer">Low</a>
-                  </td>
-                </tr>
-                <tr class="border-b">
-                  <td class="px-3 py-2 font-medium text-gray-600">
-                    <i class="fas fa-vial text-slate-600"></i> Tested On:
-                  </td>
-                  <td class="px-3 py-2 text-blue-600">
-                    <a onclick="openTestedModal()" class="cursor-pointer">NA</a>
+                  <td class="px-4 py-3 text-blue-600 font-medium">
+                    <a onclick="openComplexityModal()" class="cursor-pointer hover:underline">Low</a>
                   </td>
                 </tr>
-                <tr class="border-b">
-                  <td class="px-3 py-2 font-medium text-gray-600">
-                    <i class="fas fa-clipboard-check text-slate-600"></i> Testing Status:
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-600">
+                    <i class="fas fa-vial text-gray-500 mr-2"></i> Tested On:
                   </td>
-                  <td class="px-3 py-2 text-blue-600">
-                    <a onclick="openTestingStatusModal()" class="cursor-pointer">NA</a>
-                  </td>
-                </tr>
-                <tr class="border-b">
-                  <td class="px-3 py-2 font-medium text-gray-600">
-                    <i class="fas fa-code text-slate-600"></i> Task Type:
-                  </td>
-                  <td class="px-3 py-2 text-blue-600">
-                    <a onclick="openTaskTypeModal()" class="cursor-pointer">Code Update</a>
+                  <td class="px-4 py-3 text-blue-600 font-medium">
+                    <a onclick="openTestedModal()" class="cursor-pointer hover:underline">NA</a>
                   </td>
                 </tr>
-                <tr class="border-b">
-                  <td class="px-3 py-2 font-medium text-gray-600" style="white-space: nowrap;">
-                    <i class="fas fa-arrow-right text-slate-600"></i> From Department:
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-600">
+                    <i class="fas fa-clipboard-check text-gray-500 mr-2"></i> Testing Status:
                   </td>
-                  <td class="px-3 py-2 text-blue-600">
-                    <a onclick="openFromDepartmentModal()" class="cursor-pointer">DevOps - Code Update</a>
-                  </td>
-                </tr>
-                <tr class="border-b">
-                  <td class="px-3 py-2 font-medium text-gray-600">
-                    <i class="fas fa-route text-slate-600"></i> Misrouted:
-                  </td>
-                  <td class="px-3 py-2 text-blue-600">
-                    <a onclick="openMisroutedModal()" class="cursor-pointer">NA</a>
+                  <td class="px-4 py-3 text-blue-600 font-medium">
+                    <a onclick="openTestingStatusModal()" class="cursor-pointer hover:underline">NA</a>
                   </td>
                 </tr>
-                <tr>
-                  <td class="px-3 py-2 font-medium text-gray-600" style="white-space: nowrap;">
-                    <i class="fas fa-exclamation-triangle text-slate-600"></i> Information Missing:
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-600">
+                    <i class="fas fa-code text-gray-500 mr-2"></i> Task Type:
                   </td>
-                  <td class="px-3 py-2 text-blue-600">
-                    <a onclick="openInfoMissingModal()" class="cursor-pointer">NO</a>
+                  <td class="px-4 py-3 text-blue-600 font-medium">
+                    <a onclick="openTaskTypeModal()" class="cursor-pointer hover:underline">Code Update</a>
+                  </td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-600 whitespace-nowrap">
+                    <i class="fas fa-arrow-right text-gray-500 mr-2"></i> From Department:
+                  </td>
+                  <td class="px-4 py-3 text-blue-600 font-medium">
+                    <a onclick="openFromDepartmentModal()" class="cursor-pointer hover:underline">DevOps - Code Update</a>
+                  </td>
+                </tr>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-600">
+                    <i class="fas fa-route text-gray-500 mr-2"></i> Misrouted:
+                  </td>
+                  <td class="px-4 py-3 text-blue-600 font-medium">
+                    <a onclick="openMisroutedModal()" class="cursor-pointer hover:underline">NA</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-600 whitespace-nowrap">
+                    <i class="fas fa-exclamation-triangle text-gray-500 mr-2"></i> Information Missing:
+                  </td>
+                  <td class="px-4 py-3 text-blue-600 font-medium">
+                    <a onclick="openInfoMissingModal()" class="cursor-pointer hover:underline">NO</a>
                   </td>
                 </tr>
               </tbody>
@@ -267,28 +267,32 @@
             </div>
         </div>
         <!-- Activity items -->
-        <div class="space-y-3 mt-6 ml-4">
+        <div class="mt-3 space-y-4 mb-6 ml-6 pl-6 border-l-2 border-gray-200">
             <!-- Created by activity -->
             <div class="flex items-center space-x-3 text-sm text-gray-600">
-                <i class="fas fa-edit text-gray-400"></i>
+                <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500">
+                    <i class="fas fa-edit text-sm"></i>
+                </div>
                 <span>Created by</span>
-                <div class="w-5 h-5 bg-gray-300 rounded-full flex items-center justify-center">
+                <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
                     <i class="fas fa-user text-white text-xs"></i>
                 </div>
                 <span class="font-medium text-gray-800">sanjana p</span>
-                <span>7/8/25 9:39 AM</span>
+                <span class="text-xs text-gray-500">7/8/25 9:39 AM</span>
             </div>
 
             <!-- Assignment activity -->
             <div class="flex items-center space-x-3 text-sm text-gray-600">
-                <i class="fas fa-user-check text-gray-400"></i>
-                <div class="w-5 h-5 bg-gray-300 rounded-full flex items-center justify-center">
+                <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500">
+                    <i class="fas fa-user-check text-sm"></i>
+                </div>
+                <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
                     <i class="fas fa-user text-white text-xs"></i>
                 </div>
                 <span class="font-medium text-gray-800">Kanishk Magare</span>
                 <span>assigned this to</span>
                 <span class="font-medium text-gray-800">hamza shaikh</span>
-                <span>7/8/25 11:11 AM</span>
+                <span class="text-xs text-gray-500">7/8/25 11:11 AM</span>
             </div>
         </div>
 
@@ -340,7 +344,7 @@
             <!-- Collaborators section - add ID here -->
             <div id="collaboratorsSection" class="mb-3">
               <span class="text-sm font-medium text-blue-600">
-                <a class="opencollaboratormodal cursor-pointer">Collaborators</a>
+                <a class="opencollaboratormodal cursor-pointer"><i class="fas fa-users mr-2"></i>Collaborators</a>
               </span>
             </div>
             <!-- Rich Text Editor Toolbar -->
