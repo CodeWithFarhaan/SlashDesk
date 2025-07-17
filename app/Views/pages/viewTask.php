@@ -13,7 +13,7 @@
 <?= $this->include('modals/fromDeptModal') ?>
 <?= $this->include('modals/misroutedModal') ?>
 <?= $this->include('modals/infoMissingModal') ?>
-
+<?= $this->include('modals/editTaskModal') ?>
 
 <div class="overflow-y-auto">
   <div class="fixed inset-0 -z-10">
@@ -100,13 +100,13 @@
 
             <!-- Action Buttons -->
             <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm transition-all duration-200">
-              <i class="fas fa-external-link-alt"></i>
+              <i onclick="openTransferModal()" class="fas fa-external-link-alt"></i>
             </button>
             <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm transition-all duration-200">
               <i class="fas fa-print"></i>
             </button>
             <button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm transition-all duration-200">
-              <i class="fas fa-edit"></i>
+              <i onclick="openEditTaskModal()" class="fas fa-edit"></i>
             </button>
         </div>
       </div>
