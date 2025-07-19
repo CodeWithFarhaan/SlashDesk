@@ -48,8 +48,8 @@
           <i class="fas fa-tasks text-white">
           </i>
           <span class="font-semibold text-white-600 text-2xl">
-            Task #35773
-            / Ticket #046314
+            <a href="/viewTask">Task #35773</a>
+            / <a href="/viewTicket">Ticket #046314</a>
           </span>
         </div>
 

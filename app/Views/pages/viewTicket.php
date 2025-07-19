@@ -176,12 +176,12 @@
                   <tbody>
                     <tr>
                       <td class="py-2 px-4 border-b border-gray-100"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                      <td class="py-2 px-4 border-b border-gray-100">33771</td>
+                      <td class="py-2 px-4 text-blue-600 border-b border-gray-100"><a href="/viewTask">35773</a></td>
                       <td class="py-2 px-4 border-b border-gray-100">4/14/25 10:59 AM</td>
                       <td class="py-2 px-4 border-b border-gray-100"><span class="px-2 py-0.5 bg-green-100 text-green-700 rounded-full text-xs font-medium">closed</span></td>
-                      <td class="py-2 px-4 border-b border-gray-100 text-blue-600 hover:underline cursor-pointer">Anamtech - Unable to Initiate a call (10)</td>
-                      <td class="py-2 px-4 border-b border-gray-100">DevOps Issues</td>
-                      <td class="py-2 px-4 border-b border-gray-100">👤 Imran Khan</td>
+                      <td class="py-2 px-4 border-b border-gray-100 text-blue-600 hover:underline cursor-pointer"><a href="/viewTask">BFL Automated Leadset Removal Issue</a></td>
+                      <td class="py-2 px-4 border-b border-gray-100">Customer Deliveries</td>
+                      <td class="py-2 px-4 border-b border-gray-100">👤 hamza shaikh</td>
                     </tr>
                   </tbody>
                 </table>
