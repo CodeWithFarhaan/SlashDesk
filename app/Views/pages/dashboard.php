@@ -3,9 +3,6 @@
 <?= $this->include('modals/newTaskModal') ?>
 <!-- Dashboard Content -->
 <main class="flex-1 p-6 overflow-auto relative">
-  <div class="fixed inset-0 -z-10">
-    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-  </div>
   <!-- Welcome Banner -->
   <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-6 mb-6 text-white relative overflow-hidden">
     <div class="relative z-10">

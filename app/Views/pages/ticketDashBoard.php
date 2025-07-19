@@ -2,9 +2,6 @@
 <?= $this->include('partials/navbar') ?>
 
 <div class="h-screen overflow-y-auto p-6">
-    <div class="fixed inset-0 -z-10">
-        <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-    </div>
     <div class="mx-auto max-w-7xl space-y-6">
         <!-- Header -->
         <div class="flex items-center justify-between flex-wrap gap-4">

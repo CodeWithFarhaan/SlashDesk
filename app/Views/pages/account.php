@@ -3,9 +3,6 @@
 
 <!-- Main Content -->
 <main class="flex-1 p-6 md:p-8 overflow-auto">
-  <div class="fixed inset-0 -z-10">
-    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-  </div>
   <!-- Header with Back Button -->
   <div class="flex items-center mb-8">
     <h1 class="text-2xl md:text-3xl font-bold text-gray-800 flex items-center">

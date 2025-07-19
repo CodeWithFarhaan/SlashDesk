@@ -1,9 +1,6 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
 <div class="flex-1 overflow-hidden">
-    <div class="fixed inset-0 -z-10">
-        <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-    </div>
     <!-- Header -->
     <div class="bg-white border-b border-gray-200 px-6 py-4">
         <div class="flex items-center justify-between">

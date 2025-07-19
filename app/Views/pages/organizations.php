@@ -3,9 +3,6 @@
 
 <!-- Main Content Wrapper -->
 <div class="flex-1 p-6 overflow-auto relative">
-  <div class="fixed inset-0 -z-10">
-    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-  </div>
   <!-- Page Heading -->
   <h1 class="text-md text-gray-500 font-semibold mb-2">Below are all the listed Organizations.</h1>
 
