@@ -185,7 +185,7 @@
               <tbody>
                 <tr class="border-b hover:bg-gray-50">
                   <td class="px-4 py-3 font-medium text-gray-600 w-32">
-                    <i class="fas fa-layer-group text-gray-500 mr-2"></i> Complexity:
+                    <i class="fas fa-layer-group text-red-500 mr-2"></i> Complexity:
                   </td>
                   <td class="px-4 py-3 text-blue-600 font-medium">
                     <a onclick="openComplexityModal()" class="cursor-pointer hover:underline">Low</a>
@@ -193,7 +193,7 @@
                 </tr>
                 <tr class="border-b hover:bg-gray-50">
                   <td class="px-4 py-3 font-medium text-gray-600">
-                    <i class="fas fa-vial text-gray-500 mr-2"></i> Tested On:
+                    <i class="fas fa-vial text-blue-500 mr-2"></i> Tested On:
                   </td>
                   <td class="px-4 py-3 text-blue-600 font-medium">
                     <a onclick="openTestedModal()" class="cursor-pointer hover:underline">NA</a>
@@ -201,7 +201,7 @@
                 </tr>
                 <tr class="border-b hover:bg-gray-50">
                   <td class="px-4 py-3 font-medium text-gray-600">
-                    <i class="fas fa-clipboard-check text-gray-500 mr-2"></i> Testing Status:
+                    <i class="fas fa-clipboard-check text-green-500 mr-2"></i> Testing Status:
                   </td>
                   <td class="px-4 py-3 text-blue-600 font-medium">
                     <a onclick="openTestingStatusModal()" class="cursor-pointer hover:underline">NA</a>
@@ -209,7 +209,7 @@
                 </tr>
                 <tr class="border-b hover:bg-gray-50">
                   <td class="px-4 py-3 font-medium text-gray-600">
-                    <i class="fas fa-code text-gray-500 mr-2"></i> Task Type:
+                    <i class="fas fa-code text-black mr-2"></i> Task Type:
                   </td>
                   <td class="px-4 py-3 text-blue-600 font-medium">
                     <a onclick="openTaskTypeModal()" class="cursor-pointer hover:underline">Code Update</a>
@@ -217,7 +217,7 @@
                 </tr>
                 <tr class="border-b hover:bg-gray-50">
                   <td class="px-4 py-3 font-medium text-gray-600 whitespace-nowrap">
-                    <i class="fas fa-arrow-right text-gray-500 mr-2"></i> From Department:
+                    <i class="fas fa-arrow-right text-green-500 mr-2"></i> From Department:
                   </td>
                   <td class="px-4 py-3 text-blue-600 font-medium">
                     <a onclick="openFromDepartmentModal()" class="cursor-pointer hover:underline">DevOps - Code Update</a>
@@ -225,7 +225,7 @@
                 </tr>
                 <tr class="border-b hover:bg-gray-50">
                   <td class="px-4 py-3 font-medium text-gray-600">
-                    <i class="fas fa-route text-gray-500 mr-2"></i> Misrouted:
+                    <i class="fas fa-route text-purple-500 mr-2"></i> Misrouted:
                   </td>
                   <td class="px-4 py-3 text-blue-600 font-medium">
                     <a onclick="openMisroutedModal()" class="cursor-pointer hover:underline">NA</a>
@@ -233,7 +233,7 @@
                 </tr>
                 <tr class="hover:bg-gray-50">
                   <td class="px-4 py-3 font-medium text-gray-600 whitespace-nowrap">
-                    <i class="fas fa-exclamation-triangle text-gray-500 mr-2"></i> Information Missing:
+                    <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i> Information Missing:
                   </td>
                   <td class="px-4 py-3 text-blue-600 font-medium">
                     <a onclick="openInfoMissingModal()" class="cursor-pointer hover:underline">NO</a>

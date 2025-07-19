@@ -83,7 +83,7 @@
         <!-- Row 1 -->
         <tr>
           <td class="p-3"><input type="checkbox" /></td>
-          <td class="p-3 text-blue-600 hover:underline cursor-pointer">062796</td>
+          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><a href="/viewTicket">062796</a></td>
           <td class="p-3 text-gray-600">5/6/25 6:19 PM</td>
           <td class="p-3">
             <div class="flex space-x-2">

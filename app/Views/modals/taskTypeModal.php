@@ -27,7 +27,7 @@
                         Task Type: <span class="text-red-500">*</span>
                     </label>
                     <select id="tasktype" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="activity" selected>Activity</option>
+                        <option value="activity">Activity</option>
                         <option value="codemerge">Code Merge</option>
                         <option value="codeupdate" selected>Code Update</option>
                         <option value="customization">Customization</option>
