@@ -3,7 +3,7 @@
 
 <div class="container mx-auto px-4 py-6">
   <!-- Header Buttons -->
-  <div class="max-w-4xl mx-auto mb-8">
+  <div class="max-w-6xl mx-auto mb-8">
     <div class="flex bg-gray-200 rounded-lg p-1">
       <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
         <a href="/ticketOpen">Open</a>

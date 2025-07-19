@@ -2,9 +2,6 @@
   <?= $this->include('partials/navbar') ?>
 
   <div class="overflow-y-auto">
-    <div class="fixed inset-0 -z-10">
-      <img class="h-full w-full object-cover" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-    </div>
     <div class="container mx-auto px-4 py-6 relative z-0">
       <!-- Header -->
       <div class="mb-6">
@@ -155,7 +152,7 @@
               <div class="flex justify-between items-center mb-4">
                 <span class="text-sm text-gray-600">Showing 1 - 1 of 1 task</span>
                 <div class="flex space-x-2">
-                  <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white h-9 px-4 py-2 hover:bg-blue-700">
+                  <button class="navModal inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-600 text-white h-9 px-4 py-2 hover:bg-blue-700">
                     <span class="mr-1">+</span> Add New Task
                   </button>
                   <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">
