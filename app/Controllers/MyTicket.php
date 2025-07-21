@@ -18,7 +18,10 @@ class MyTicket extends BaseController
                         'Accept' => 'application/json',
                         'Authorization' => 'Bearer '.substr(session()->get('token'),0,) 
                     ],
-                    'data'=>'',
+                    'data'=> [
+                        'pageState' => null,
+                        'pageSize' => "10"
+                    ],  
                     'http_errors' => false // To handle HTTP errors manually
             ]);
             $responseBody = json_decode($response->getBody(), true);
@@ -31,7 +34,8 @@ class MyTicket extends BaseController
             	return view('pages/myTicket',$data);
             }else{
             	// print_r(substr(session()->get('token'),0,));        
-                print_r($responseBody);
+                print_r($responseBody);     
+                print_r($statusCode);
             }
         }catch(\Exception $e){
         	log_message('error', 'Registration exception: ' . $e->getMessage());
@@ -47,6 +51,6 @@ class MyTicket extends BaseController
 
 
     public function getAllTicket(){
-
+        
     }
 }

@@ -137,7 +137,7 @@ class Registration extends BaseController
             // print_r(e->getMessage());
             return $this->response->setJSON([
                 'status' => false,
-                'message' => 'An error occurred while processing your request'
+                'message' => $e->getMessage(),
             ])->setStatusCode(500);
         }
     }

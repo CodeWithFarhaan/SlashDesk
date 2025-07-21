@@ -81,7 +81,7 @@
       </thead>
       <tbody class="divide-y">
         <!-- Row 1 -->
-        <?php foreach ($responseBody['message'] as $key => $value) { ?>
+         <?php foreach ($responseBody['data'] as $key => $value) { ?>
         <tr>
           <td class="p-3"><input type="checkbox" /></td>
           <td class="p-3 text-blue-600 hover:underline cursor-pointer"><?php echo(substr($value['id'],-7)) ?> </td>
@@ -96,7 +96,7 @@
               </svg>
             </div>
           </td>
-          <td class="p-3"><?php echo(substr($value['created_by'],-10)) ?></td>
+          <td class="p-3"><?php echo($value['created_by']) ?></td>
           <td class="p-3">
             <?php if ($value['priority'] === "high") { ?>      
             <span
@@ -109,9 +109,9 @@
               class="inline-block px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-400 rounded-full">Low</span>
             <?php  } ?>
           </td>
-          <td class="p-3"><?php print_r(substr($value['department_id'],-10)) ?> </td>
+          <td class="p-3"><?php print_r($value['department_details']['department_name']) ?> </td>
         </tr>
-      <?php } ?>
+      <?php } ?> 
       </tbody>
     </table>
   </div>
