@@ -1,205 +1,278 @@
-class TransferModal {
-    constructor() {
-        this.modal = document.getElementById('transferModal');
-        this.form = document.getElementById('transferForm');
-        this.init();
+$(document).ready(() => {
+  // Initialize date picker
+  flatpickr("#due_date", {
+    dateFormat: "Y-m-d",
+    minDate: "today",
+  })
+
+  // Modal functionality
+  const modal = $("#departModal")
+  const taskForm = $("#departForm")
+  const closeNewModalBtn = $(".closeModal")
+  const cancelNewModalBtn = $(".cancelNewModalBtn")
+  const resetBtn = $("#resetBtn")
+  const navModal = $(".dptMoals")
+
+  // Open modal
+  navModal.on("click", function (e) {
+    // Prevent opening modal if clicking on the modal content
+    if (e.target === this) {
+      modal.removeClass("hidden")
+      $("body").addClass("overflow-hidden")
+    }
+  })
+
+  // Close modal function
+  function closeModal() {
+    modal.addClass("hidden")
+    $("body").removeClass("overflow-hidden")
+
+    // Reset form
+    taskForm[0].reset()
+    $("#editor").html("")
+    $("#description").val("")
+    $("#fileList").empty()
+    $("#assignee").html('<option value="">Select assignee</option>')
+    $(".error-message").addClass("hidden")
+
+    console.log("Modal closed and form reset")
+  }
+
+  // Event handlers for closing modal
+  closeNewModalBtn.on("click", (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    closeModal()
+  })
+
+  cancelNewModalBtn.on("click", (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    closeModal()
+  })
+
+  // Reset button handler
+  resetBtn.on("click", (e) => {
+    e.preventDefault()
+
+    // Reset form
+    taskForm[0].reset()
+    $("#editor").html("")
+    $("#description").val("")
+    $("#fileList").empty()
+    $("#assignee").html('<option value="">Select assignee</option>')
+    $(".error-message").addClass("hidden")
+
+    console.log("Form reset")
+  })
+
+  // Close modal when clicking outside (on backdrop)
+  modal.on("click", function (e) {
+    if (e.target === this) {
+      closeModal()
+    }
+  })
+
+  // Prevent modal from closing when clicking inside the modal content
+  modal.find(".relative").on("click", (e) => {
+    e.stopPropagation()
+  })
+
+  // Escape key to close modal
+  $(document).on("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hasClass("hidden")) {
+      closeModal()
+    }
+  })
+
+  // Rich text editor functionality
+  const editor = $("#editor")
+  const descriptionField = $("#description")
+
+  // Placeholder functionality
+  editor.on("focus", function () {
+    if ($(this).text() === "") {
+      $(this).removeClass("text-gray-400")
+    }
+  })
+
+  editor.on("blur", function () {
+    if ($(this).text() === "") {
+      $(this).addClass("text-gray-400")
+    }
+  })
+
+  // Update hidden textarea when editor content changes
+  editor.on("input", function () {
+    descriptionField.val($(this).html())
+  })
+
+  // Toolbar functionality
+  $(".toolbar-btn").on("click", function (e) {
+    e.preventDefault()
+    const action = $(this).data("action")
+
+    editor.focus()
+
+    if (action === "createLink") {
+      const url = prompt("Enter URL:")
+      if (url) {
+        document.execCommand(action, false, url)
+      }
+    } else if (action === "insertImage") {
+      const url = prompt("Enter image URL:")
+      if (url) {
+        document.execCommand(action, false, url)
+      }
+    } else {
+      document.execCommand(action, false, null)
     }
 
-    init() {
-        this.bindEvents();
-        this.setupFormValidation();
+    descriptionField.val(editor.html())
+  })
+
+  // File upload functionality
+  const fileInput = $("#attachments")
+  const uploadBtn = $("#uploadBtn")
+  const fileList = $("#fileList")
+
+  uploadBtn.on("click", () => {
+    fileInput.click()
+  })
+
+  fileInput.on("change", function () {
+    const files = this.files
+    fileList.empty()
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      const fileItem = $(`
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+          ${file.name}
+          <button type="button" class="ml-1 text-blue-600 hover:text-blue-800 remove-file" data-index="${i}">
+            <i class="fas fa-times"></i>
+          </button>
+        </span>
+      `)
+      fileList.append(fileItem)
+    }
+  })
+
+  // Remove file functionality
+  fileList.on("click", ".remove-file", function () {
+    const index = $(this).data("index")
+    const dt = new DataTransfer()
+    const files = fileInput[0].files
+
+    for (let i = 0; i < files.length; i++) {
+      if (i !== index) {
+        dt.items.add(files[i])
+      }
     }
 
-    bindEvents() {
-        // Close modal events
-        document.getElementById('closeModal').addEventListener('click', () => this.close());
-        document.getElementById('cancelBtn').addEventListener('click', () => this.close());
-        
-        // Close on backdrop click
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.close();
-            }
-        });
+    fileInput[0].files = dt.files
+    fileInput.trigger("change")
+  })
 
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
-                this.close();
-            }
-        });
+  // Department change - load assignees
+  $("#department").on("change", function () {
+    const departmentId = $(this).val()
+    const assigneeSelect = $("#assignee")
 
-        // Reset button
-        document.getElementById('resetBtn').addEventListener('click', () => this.resetForm());
+    assigneeSelect.html('<option value="">Loading...</option>')
 
-        // Form submission
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-
-        // Department change validation
-        document.getElementById('department').addEventListener('change', () => this.validateForm());
+    if (departmentId) {
+      $.post(
+        '<?php echo base_url("task/get_assignees"); ?>',
+        {
+          department: departmentId,
+        },
+        (data) => {
+          assigneeSelect.html('<option value="">Select assignee</option>')
+          $.each(data, (index, user) => {
+            assigneeSelect.append(`<option value="${user.id}">${user.name}</option>`)
+          })
+        },
+        "json",
+      ).fail(() => {
+        assigneeSelect.html('<option value="">Select assignee</option>')
+        console.error("Failed to load assignees")
+      })
+    } else {
+      assigneeSelect.html('<option value="">Select assignee</option>')
     }
+  })
 
-    setupFormValidation() {
-    const departmentSelect = document.getElementById('department');
+  // Form submission
+  // taskForm.on("submit", function (e) {
+  //   e.preventDefault()
 
-    // Real-time validation (optional if you still want to validate input)
-    departmentSelect.addEventListener('input', () => {
-        this.validateForm();
-    });
+  //   // Update description field
+  //   descriptionField.val(editor.html())
 
-    // Initial validation
-    this.validateForm();
-    }
+  //   const submitBtn = $("#submitBtn")
+  //   const submitText = $(".submit-text")
+  //   const loadingIcon = $(".loading-icon")
 
-    validateForm() {
-        // Just validate, but don't disable the button
-        const department = document.getElementById('department').value;
-        const transferBtn = document.getElementById('transferBtn');
+  //   // Show loading state
+  //   submitBtn.prop("disabled", true)
+  //   submitText.addClass("hidden")
+  //   loadingIcon.removeClass("hidden")
 
-        // Optional: You can show a warning or style the input if invalid,
-        // but don't disable the button
-        if (!department) {
-            console.warn("Department not selected.");
-            // Optionally add a warning class or message
-        }
+  //   // Clear previous errors
+  //   $(".error-message").addClass("hidden")
 
-        // Ensure the button is always enabled and styled normally
-        transferBtn.disabled = false;
-        transferBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-    }
+  //   const formData = new FormData(this)
 
-    open() {
-        this.modal.classList.remove('hidden');
-        this.modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-        
-        // Focus first input
-        setTimeout(() => {
-            document.getElementById('department').focus();
-        }, 100);
-    }
+  //   $.ajax({
+  //     url: $(this).attr("action"),
+  //     type: "POST",
+  //     data: formData,
+  //     processData: false,
+  //     contentType: false,
+  //     dataType: "json",
+  //     success: (response) => {
+  //       if (response.success) {
+  //         // Show success message
+  //         const successAlert = $(`
+  //           <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+  //             <span class="block sm:inline">${response.message}</span>
+  //           </div>
+  //         `)
 
-    close() {
-        this.modal.classList.add('hidden');
-        this.modal.classList.remove('flex');
-        document.body.style.overflow = '';
-        this.resetForm();
-    }
+  //         closeModal()
+  //         $(".max-w-7xl").prepend(successAlert)
 
-    resetForm() {
-        this.form.reset();
-        this.validateForm();
-        
-        // Reset any error states
-        this.clearErrors();
-    }
+  //         // Auto-hide success message
+  //         setTimeout(() => {
+  //           successAlert.fadeOut()
+  //         }, 5000)
 
-    async handleSubmit(e) {
-        e.preventDefault();
-        
-        if (!this.validateForm()) {
-            return;
-        }
-
-        this.showLoading();
-        
-        try {
-            const formData = new FormData(this.form);
-            
-            const response = await fetch(this.form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            });
-
-            const result = await response.json();
-            
-            if (result.success) {
-                this.showSuccess(result.message || 'Task transferred successfully!');
-                setTimeout(() => {
-                    this.close();
-                    // Optionally reload page or update UI
-                    if (typeof window.refreshTaskList === 'function') {
-                        window.refreshTaskList();
-                    }
-                }, 1500);
-            } else {
-                this.showError(result.message || 'Transfer failed. Please try again.');
-            }
-        } catch (error) {
-            console.error('Transfer error:', error);
-            this.showError('An error occurred. Please try again.');
-        } finally {
-            this.hideLoading();
-        }
-    }
-
-    showSuccess(message) {
-        this.showNotification(message, 'success');
-    }
-
-    showError(message) {
-        this.showNotification(message, 'error');
-    }
-
-    showNotification(message, type = 'info') {
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.className = `fixed top-4 right-4 z-70 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-300 translate-x-full ${
-            type === 'success' ? 'bg-green-500 text-white' : 
-            type === 'error' ? 'bg-red-500 text-white' : 
-            'bg-blue-500 text-white'
-        }`;
-        
-        notification.innerHTML = `
-            <div class="flex items-center space-x-2">
-                <span>${message}</span>
-                <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-white hover:text-gray-200">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Animate in
-        setTimeout(() => {
-            notification.classList.remove('translate-x-full');
-        }, 100);
-        
-        // Auto remove after 5 seconds
-        setTimeout(() => {
-            notification.classList.add('translate-x-full');
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.remove();
-                }
-            }, 300);
-        }, 5000);
-    }
-
-    clearErrors() {
-        // Remove any existing error styling
-        const inputs = this.form.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            input.classList.remove('border-red-500', 'ring-red-500');
-        });
-    }
-}
-
-// Initialize modal when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    window.transferModal = new TransferModal();
-});
-
-// Function to open modal (call this from your main page)
-function openTransferModal(taskId = null) {
-    if (taskId) {
-        document.querySelector('input[name="task_id"]').value = taskId;
-    }
-    window.transferModal.open();
-}
+  //         // Reload page to show new task
+  //         setTimeout(() => {
+  //           location.reload()
+  //         }, 1000)
+  //       } else {
+  //         // Show validation errors
+  //         if (response.errors) {
+  //           $.each(response.errors, (field, message) => {
+  //             const errorDiv = $(`[name="${field}"]`).siblings(".error-message")
+  //             errorDiv.text(message).removeClass("hidden")
+  //           })
+  //         } else {
+  //           alert(response.message)
+  //         }
+  //       }
+  //     },
+  //     error: () => {
+  //       alert("An error occurred. Please try again.")
+  //     },
+  //     complete: () => {
+  //       // Hide loading state
+  //       submitBtn.prop("disabled", false)
+  //       submitText.removeClass("hidden")
+  //       loadingIcon.addClass("hidden")
+  //     },
+  //   })
+  // })
+})

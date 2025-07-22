@@ -204,75 +204,75 @@ $(document).ready(() => {
   })
 
   // Form submission
-  taskForm.on("submit", function (e) {
-    e.preventDefault()
+  // taskForm.on("submit", function (e) {
+  //   e.preventDefault()
 
-    // Update description field
-    descriptionField.val(editor.html())
+  //   // Update description field
+  //   descriptionField.val(editor.html())
 
-    const submitBtn = $("#submitBtn")
-    const submitText = $(".submit-text")
-    const loadingIcon = $(".loading-icon")
+  //   const submitBtn = $("#submitBtn")
+  //   const submitText = $(".submit-text")
+  //   const loadingIcon = $(".loading-icon")
 
-    // Show loading state
-    submitBtn.prop("disabled", true)
-    submitText.addClass("hidden")
-    loadingIcon.removeClass("hidden")
+  //   // Show loading state
+  //   submitBtn.prop("disabled", true)
+  //   submitText.addClass("hidden")
+  //   loadingIcon.removeClass("hidden")
 
-    // Clear previous errors
-    $(".error-message").addClass("hidden")
+  //   // Clear previous errors
+  //   $(".error-message").addClass("hidden")
 
-    const formData = new FormData(this)
+  //   const formData = new FormData(this)
 
-    $.ajax({
-      url: $(this).attr("action"),
-      type: "POST",
-      data: formData,
-      processData: false,
-      contentType: false,
-      dataType: "json",
-      success: (response) => {
-        if (response.success) {
-          // Show success message
-          const successAlert = $(`
-            <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-              <span class="block sm:inline">${response.message}</span>
-            </div>
-          `)
+  //   $.ajax({
+  //     url: $(this).attr("action"),
+  //     type: "POST",
+  //     data: formData,
+  //     processData: false,
+  //     contentType: false,
+  //     dataType: "json",
+  //     success: (response) => {
+  //       if (response.success) {
+  //         // Show success message
+  //         const successAlert = $(`
+  //           <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+  //             <span class="block sm:inline">${response.message}</span>
+  //           </div>
+  //         `)
 
-          closeModal()
-          $(".max-w-7xl").prepend(successAlert)
+  //         closeModal()
+  //         $(".max-w-7xl").prepend(successAlert)
 
-          // Auto-hide success message
-          setTimeout(() => {
-            successAlert.fadeOut()
-          }, 5000)
+  //         // Auto-hide success message
+  //         setTimeout(() => {
+  //           successAlert.fadeOut()
+  //         }, 5000)
 
-          // Reload page to show new task
-          setTimeout(() => {
-            location.reload()
-          }, 1000)
-        } else {
-          // Show validation errors
-          if (response.errors) {
-            $.each(response.errors, (field, message) => {
-              const errorDiv = $(`[name="${field}"]`).siblings(".error-message")
-              errorDiv.text(message).removeClass("hidden")
-            })
-          } else {
-            alert(response.message)
-          }
-        }
-      },
-      error: () => {
-        alert("An error occurred. Please try again.")
-      },
-      complete: () => {
-        // Hide loading state
-        submitBtn.prop("disabled", false)
-        submitText.removeClass("hidden")
-        loadingIcon.addClass("hidden")
-      },
-    })
-  })
+  //         // Reload page to show new task
+  //         setTimeout(() => {
+  //           location.reload()
+  //         }, 1000)
+  //       } else {
+  //         // Show validation errors
+  //         if (response.errors) {
+  //           $.each(response.errors, (field, message) => {
+  //             const errorDiv = $(`[name="${field}"]`).siblings(".error-message")
+  //             errorDiv.text(message).removeClass("hidden")
+  //           })
+  //         } else {
+  //           alert(response.message)
+  //         }
+  //       }
+  //     },
+  //     error: () => {
+  //       alert("An error occurred. Please try again.")
+  //     },
+  //     complete: () => {
+  //       // Hide loading state
+  //       submitBtn.prop("disabled", false)
+  //       submitText.removeClass("hidden")
+  //       loadingIcon.addClass("hidden")
+  //     },
+  //   })
+  // })
 })

@@ -25,6 +25,8 @@
             }
           }
         }
+
+        
       </script>
 
       <!-- Font Awesome for icons -->
@@ -39,7 +41,7 @@
       <!-- Task Modal -->
       <div id="taskModal"
       class="navModal modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
-      <form id="taskForm" action="">
+      <form id="taskForm" method="POST" action="<?= base_url('/task/create') ?>">
         <div class="relative top-10 mx-auto p-5 border w-11/12 max-w-4xl shadow-lg rounded-lg bg-white">
           <!-- Modal Header -->
           <div class="flex justify-between items-center pb-4 border-b">

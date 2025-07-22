@@ -1,6 +1,8 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
 
+
+
 <!-- Main Content Wrapper -->
 <div class="flex-1 p-6 overflow-auto relative">
   <div class="fixed inset-0 -z-10">
@@ -43,42 +45,31 @@
             <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
           </th>
           <th class="px-6 py-3">Name</th>
-          <th class="px-6 py-3">Users</th>
-          <th class="px-6 py-3">Created</th>
-          <th class="px-6 py-3">Last Updated</th>
+          <th class="px-6 py-3">Domain</th>
+          <th class="px-6 py-3">Created By</th>
+          <th class="px-6 py-3">is Active</th>
         </tr>
       </thead>
 
       <tbody class="divide-y divide-gray-200">
-        <tr class="hover:bg-yellow-50 bg-blue-50 transition-colors duration-150">
-          <td class="px-4 py-4">
-            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
-          </td>
-          <td class="px-6 py-4 text-blue-600">1 finance</td>
-          <td class="px-6 py-4 text-gray-900">0</td>
-          <td class="px-6 py-4 text-gray-600">10/19/23</td>
-          <td class="px-6 py-4 text-gray-600">10/19/23 7:33 PM</td>
-        </tr>
 
-        <tr class="hover:bg-yellow-50 bg-white transition-colors duration-150">
+        <?php foreach ($responseBody as $key => $value) { ?>
+        <tr class="hover:bg-yellow-50 <?= $key%2==0 ? 'bg-blue-50' : 'bg-white' ?> transition-colors duration-150">
           <td class="px-4 py-4">
             <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
           </td>
-          <td class="px-6 py-4 text-blue-600">1K Networks</td>
-          <td class="px-6 py-4 text-gray-900">22</td>
-          <td class="px-6 py-4 text-gray-600">10/19/23</td>
-          <td class="px-6 py-4 text-gray-600">10/19/23 4:04 PM</td>
-        </tr>
-
-        <tr class="hover:bg-yellow-50 bg-blue-50 transition-colors duration-150">
-          <td class="px-4 py-4">
-            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500">
+          <td class="px-6 py-4 text-blue-600"><?= print_r($value['organization_name']) ?> </td>
+          <td class="px-6 py-4 text-gray-900"><?= print_r($value['domain']) ?></td>
+          <td class="px-6 py-4 text-gray-600"><?= print_r($value['created_by']) ?> </td> 
+          <td class="px-6 py-4">
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" <?= $value['is_active'] ? "checked" : "" ?> class="sr-only peer">
+              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
           </td>
-          <td class="px-6 py-4 text-blue-600">American Spine</td>
-          <td class="px-6 py-4 text-gray-900">1</td>
-          <td class="px-6 py-4 text-gray-600">5/12/25</td>
-          <td class="px-6 py-4 text-gray-600">5/12/25 4:04 PM</td>
         </tr>
+        <?php } ?>
+        
       </tbody>
     </table>
   </div>
@@ -127,7 +118,6 @@
       </div>
 
       <form id="organizationForm" action="<?= base_url('organizations/store') ?>" method="POST" class="space-y-6">
-        <?= csrf_field() ?>
 
         <!-- Name Field -->
         <div>
@@ -139,50 +129,45 @@
             placeholder="Enter organization name">
         </div>
 
-        <!-- Address Field -->
+        <!--  -->
         <div>
-          <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
-          <textarea id="address" name="address" rows="3"
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none"
-            placeholder="Enter organization address"></textarea>
+          <label for="code" class="block text-sm font-medium text-gray-700 mb-2">
+            Code <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="code" name="code" required
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+            placeholder="Enter organization Code">
         </div>
 
-        <!-- Phone and Extension -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="md:col-span-2">
-            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-            <input type="tel" id="phone" name="phone"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-              placeholder="Enter phone number">
-          </div>
-          <div>
-            <label for="extension" class="block text-sm font-medium text-gray-700 mb-2">Ext:</label>
-            <input type="text" id="extension" name="extension"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-              placeholder="Ext">
-          </div>
-        </div>
-
-        <!-- Website Field -->
         <div>
-          <label for="website" class="block text-sm font-medium text-gray-700 mb-2">Website</label>
-          <input type="url" id="website" name="website"
+             <label for="active" class="block text-sm font-medium text-gray-700 mb-2">
+            Is Active? <span class="text-red-500">*</span>
+             </label>
+             <select id="active" name="active" required
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200">
+                 <option value="">-- Select Option --</option>
+                 <option value="1">Yes</option>
+                 <option value="0">No</option>
+             </select>     
+        </div>
+        <div>
+          <label for="Domain" class="block text-sm font-medium text-gray-700 mb-2">Domain</label>
+          <input type="url" id="Domain" name="Domain"
             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
             placeholder="https://example.com">
         </div>
 
         <!-- Internal Notes Field -->
         <div>
-          <label for="internal_notes" class="block text-sm font-medium text-gray-700 mb-2">Internal Notes</label>
-          <textarea id="internal_notes" name="internal_notes" rows="4"
+          <label for="Description" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+          <textarea id="Description" name="Description" rows="4"
             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none"
-            placeholder="Enter any internal notes about this organization"></textarea>
+            placeholder="Enter Description about this organization"></textarea>
         </div>
-      </form>
-    </div>
 
-    <!-- Modal Footer -->
-    <div class="flex items-center justify-between p-6 border-t border-gray-200 bg-gray-50 rounded-b-xl">
+
+
+        <div class="flex items-center justify-between p-6 border-t border-gray-200 bg-gray-50 rounded-b-xl">
       <div class="flex gap-3">
         <button type="button" id="resetForm"
           class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
@@ -201,6 +186,21 @@
         Add Organization
       </button>
     </div>
+      </form>
+    </div>
+
+    <!-- Modal Footer -->
+    
   </div>
 </div>
 <script src="<?= base_url('assets/js/organization-modal.js') ?>"></script>
+
+
+
+
+
+
+
+
+
+

@@ -1,18 +1,18 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
-<?= $this->include('modals/newTaskModal') ?>
+<?= $this->include('modals/departmentModal') ?>
 
-<div class="container mx-auto px-4 py-6 overflow-y-auto">
+<div class="container mx-auto px-4 py-6 overflow-y-auto relative">
   <div class="fixed inset-0 -z-10">
     <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
   </div>
   <!-- Header Buttons -->
-  <div class="mb-8">
+  <!-- <div class="mb-8">
     <div class="flex bg-gray-200 rounded-lg p-1">
-      <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
-        <a href="/taskOpen">Open</a>
-      </button>
       <button class="flex-1 py-2 px-4 text-center bg-white rounded-md shadow-sm font-medium text-gray-900">
+        <a href="/ticketOpen">Open</a>
+      </button>
+      <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
         <a href="/myTask">My Tasks</a>
       </button>
       <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
@@ -26,10 +26,11 @@
       </button>
     </div>
   </div>
+ -->
   <!-- Search Bar -->
   <div class="flex items-center justify-between mb-4">
     <div class="relative w-full max-w-md">
-      <input type="text" placeholder="Search open tasks..."
+      <input type="text" placeholder="Search Department..."
         class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
       <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -38,8 +39,7 @@
     </div>
     <div class="flex items-center space-x-2">
       <button class="flex items-center px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-sm hover:bg-gray-50">
-        
-        <!-- Sort Icon -->
+        Sort Icon
         <svg class="w-4 h-4 mr-2 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h10M4 14h6M4 18h2m0 0l-2 2m2-2l2 2" />
         </svg>
@@ -54,7 +54,11 @@
             clip-rule="evenodd" />
         </svg>
       </button>
-
+      <div class="relative cursor-pointer">
+    <button id="newDepartmentBtn" class="dptMoals space-x-2 bg-black text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-800">
+    + New Department
+</button>
+</div>
     </div>
   </div>
 
@@ -90,46 +94,32 @@
       <thead class="bg-gray-100">
         <tr>
           <td class="p-3"><input type="checkbox" /></td>
-          <th class="p-3 text-left">Number</th>
-          <th class="p-3 text-left">Ticket</th>
-          <th class="p-3 text-left">Date Created</th>
-          <th class="p-3 text-left">Title</th>
-          <th class="p-3 text-left">Department</th>
-          <th class="p-3 text-left"></th>
-          <th class="p-3 text-left">Agent</th>
+          <th class="p-3 text-left">Name</th>
+          <th class="p-3 text-left">Created By</th>
+          <th class="p-3 text-left">Department Code</th>
+          <th class="p-3 text-left">is Active</th>
         </tr>
       </thead>
       <tbody class="divide-y">
         <!-- Row 1 -->
-        <?php foreach ($responseBody['data']['enrichedTasks'] as $key => $value) { ?>
+        <?php foreach ($responseBody['data'] as $key => $value) { ?>
         <tr>
           <td class="p-3"><input type="checkbox" /></td>
-          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><a href="/viewTask"><?= print_r(substr($value['id'], -8)) ?> </a></td>
-          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><?= print_r(substr($value['ticket_id'],-7)) ?></td>
-          <td class="p-3 text-gray-600"><?= print_r($value['created_at'])?></td>
-          <td class="p-3">
-            <div class="flex space-x-2">
-              <a href="/viewTask" class="text-blue-600 hover:underline"><?= print_r($value['title']) ?></a>
-              <span class="text-xs ml-1">(10)</span>
-              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M18 10c0 3.866-3.582 7-8 7a8.772 8.772 0 01-3.338-.638l-3.52 1.056a.5.5 0 01-.624-.624l1.056-3.52A7.977 7.977 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" />
-              </svg>
-            </div>
-          </td>
-          <td class="p-3"><?= print_r($value['department_details']['department_name']) ?></td>
-          <td class="p-3">
-            <span></span>
-          </td>
-          <td class="p-3 flex">
-            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-            </svg>hamza shaik
+          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><a href="/viewTask"><?= print_r($value['department_name']) ?></a></td>
+          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><?= print_r("akash") ?></td>
+          <td class="p-3 text-gray-600"><?= print_r($value['department_code']) ?></td>
+          <td class="px-6 py-4">
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" <?= $value['is_active'] ? "checked" : "" ?> class="sr-only peer">
+              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
           </td>
         </tr>
       <?php } ?>
+        <!-- Row 2 -->
+        
       </tbody>
     </table>
   </div>
 </div>
+<script src="<?= base_url('assets/js/departmentModal.js') ?>"></script>

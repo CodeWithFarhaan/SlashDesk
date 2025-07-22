@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-class Organizations extends BaseController
+class Department extends BaseController
 {
-    public function index()
+	public function index()
     {
     	if (!session()->get('isLoggedIn') || !session()->get('token')) {
             return redirect()->to('login');
         }
         $client = \Config\Services::curlrequest();
-        $url = env("URL_BACKEND")."/organization/view";
+        $url = env("URL_BACKEND")."/department/view";
         try{
             $response = $client->request('GET', $url, [
                 'headers' => [
@@ -24,7 +24,7 @@ class Organizations extends BaseController
             $statusCode = $response->getStatusCode();
             if ($statusCode >= 200 && $statusCode < 300){
             	$data['responseBody'] = $responseBody;
-            	return view('pages/organizations',$data); 
+            	return view('/pages/department',$data); 
             }else{
             	// print_r(substr(session()->get('token'),0,));        
                 print_r($responseBody);
@@ -38,27 +38,28 @@ class Organizations extends BaseController
                 'message' => $e->getMessage()
             ])->setStatusCode(500);
         }
-        // return view('pages/organizations'); 
+    	// return view('/pages/department');
     }
 
 
 
 
-    public function create(){
+
+
+   public function create(){
 
     	if (!session()->get('isLoggedIn') || !session()->get('token')) {
             return redirect()->to('login');
         }
 
-        $Org_Name = $this->request->getPost('name');
-        $code = $this->request->getPost('code');   
-        $isActive = $this->request->getPost('active');  
-        $Domain = $this->request->getPost('Domain');   
-        $Description = $this->request->getPost('Description');
+        $dpt_name = $this->request->getPost('dept_name');
+        $dept_code = $this->request->getPost('dept_code');   
+        $isActive = $this->request->getPost('status');  
+        $Description = $this->request->getPost('description');
         // print_r($isActive);
         // die;
         $client = \Config\Services::curlrequest();
-        $url = env("URL_BACKEND")."/organization/create";
+        $url = env("URL_BACKEND")."/department/create";
         try{
             $response = $client->request('POST', $url, [
                 'headers' => [
@@ -66,10 +67,9 @@ class Organizations extends BaseController
                     'Authorization' => 'Bearer '.substr(session()->get('token'),0,) 
                 ],
                 'json'=> [
-                    "organization_name"=> $Org_Name,
-                    "organization_code"=> $code,
-                    "domain"           => $Domain,
-                    "description"      => $Description,
+                    "department_name"=> $dpt_name,
+                    "description"=> $Description,
+                    "department_code"           => $dept_code,
                     "is_active"        => $isActive
                 ],  
                 'http_errors' => false // To handle HTTP errors manually
@@ -77,7 +77,7 @@ class Organizations extends BaseController
             $responseBody = json_decode($response->getBody(), true);
             $statusCode = $response->getStatusCode();
             if ($statusCode >= 200 && $statusCode < 300){
-            	return redirect()->to('organizations');
+            	return redirect()->to('/department');
             }else{
             	// print_r(substr(session()->get('token'),0,));        
                 print_r($responseBody);

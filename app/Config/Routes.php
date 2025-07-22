@@ -19,6 +19,8 @@ $routes->post('/login', 'Registration::login');
 
 $routes->get('/ticketStatus', 'TicketStatus::index');
 
+$routes->get('/department' , 'Department::index');
+$routes->post('department/Create', 'Department::create');
 
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/agentDirectory', 'AgentDirectory::index');
@@ -27,7 +29,7 @@ $routes->get('/account', 'Account::index');
 
 $routes->get('/userDirectory', 'UserDirectory::index');
 $routes->get('/organizations', 'Organizations::index');
-
+$routes->post('organizations/store', 'Organizations::create');
 
 $routes->get('/faqs', 'Faqs::index');
 $routes->get('/categories', 'Categories::index');
@@ -41,6 +43,8 @@ $routes->get('/ticketSearch', 'TicketSearch::index');
 
 
 $routes->get('/taskOpen', 'TaskOpen::index');
+$routes->post('/task/create' , 'MyTask::create');
+
 $routes->get('/myTask', 'MyTask::index');
 $routes->get('/taskCompleted', 'TaskCompleted::index');
 $routes->get('/taskUpdates', 'TaskUpdates::index');

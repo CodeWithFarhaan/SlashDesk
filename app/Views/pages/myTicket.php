@@ -89,7 +89,7 @@
           <td class="p-3 text-gray-600"><?php echo(date("d M y h:i A", (int) $value['updated_at'])) ?></td>
           <td class="p-3">
             <div class="flex space-x-2">
-              <a href="#" class="text-blue-600 hover:underline"><?php echo($value['title']) ?></a>
+              <a href="#" class="text-blue-600 hover:underline"><?php  echo($value['title']) ?></a>
               <span class="text-xs ml-1">(10)</span>
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -99,7 +99,7 @@
           </td>
           <td class="p-3"><?php echo($value['created_by']) ?></td>
           <td class="p-3">
-            <?php if ($value['priority'] === "high") { ?>      
+            <?php  if ($value['priority'] === "high") { ?>      
             <span
               class="inline-block px-3 py-1 text-xs font-semibold text-red-600 border border-red-400 rounded-full">High</span>
             <?php } else if($value['priority'] === "medium") { ?>
@@ -110,7 +110,9 @@
               class="inline-block px-3 py-1 text-xs font-semibold text-blue-600 border border-blue-400 rounded-full">Low</span>
             <?php  } ?>
           </td>
-          <td class="p-3"><?php print_r($value['department_details']['department_name']) ?> </td>
+          
+                    <td class="p-3">Cd </td>
+
         </tr>
       <?php } ?> 
       </tbody>
