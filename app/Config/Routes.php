@@ -34,7 +34,7 @@ $routes->get('/categories', 'Categories::index');
 $routes->get('/cannedResponse', 'CannedResponse::index');
 
 
-$routes->get('/ticketOpen', 'TicketOpen::index');
+$routes->get('/ticketOpen', 'MyTicket::index');
 $routes->get('/myTicket', 'MyTicket::index');
 $routes->get('/ticketClosed', 'TicketClosed::index');
 $routes->get('/ticketSearch', 'TicketSearch::index');

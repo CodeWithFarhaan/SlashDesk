@@ -101,11 +101,12 @@
       </thead>
       <tbody class="divide-y">
         <!-- Row 1 -->
+        <?php foreach ($responseBody['data']['enrichedTasks'] as $key => $value) { ?>
         <tr>
           <td class="p-3"><input type="checkbox" /></td>
-          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><a href="/viewTask">35773</a></td>
-          <td class="p-3 text-blue-600 hover:underline cursor-pointer">046314</td>
-          <td class="p-3 text-gray-600">6/13/25 7:34 PM</td>
+          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><a href="/viewTask"><?= print_r(substr($value['id'], -8)) ?> </a></td>
+          <td class="p-3 text-blue-600 hover:underline cursor-pointer"><?= print_r(substr($value['ticket_id'],-7)) ?></td>
+          <td class="p-3 text-gray-600"><?= print_r($value)?></td>
           <td class="p-3">
             <div class="flex space-x-2">
               <a href="/viewTask" class="text-blue-600 hover:underline">BFL Automated Leadset Removal Issue</a>
@@ -127,6 +128,7 @@
             </svg>hamza shaikh
           </td>
         </tr>
+      <?php } ?>
       </tbody>
     </table>
   </div>
