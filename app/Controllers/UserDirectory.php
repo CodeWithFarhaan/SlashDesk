@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class UserDirectory extends BaseController
 {
-    public function index(): string
+    public function index()
     {
     	$client = \Config\Services::curlrequest();
         $url = env("URL_BACKEND")."/auth/allUser";

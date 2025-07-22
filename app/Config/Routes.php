@@ -13,6 +13,9 @@ $routes->post('/registration', 'Registration::registration');
 $routes->get('/logout', 'Registration::logout');
 
 
+$routes->get('/access_level' , 'access_controller::index');
+$routes->post('/access/create','access_controller::create');
+
 
 $routes->get('/login', 'Login::index');
 $routes->post('/login', 'Registration::login');

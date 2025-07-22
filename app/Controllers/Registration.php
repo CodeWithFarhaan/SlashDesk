@@ -164,5 +164,54 @@ class Registration extends BaseController
             ->with('status', 'success')
             ->with('message', 'You have been successfully logged out');
     }
+
+    public function getAllUsers(){
+        if (!session()->get('isLoggedIn') || !session()->get('token')) {
+            return redirect()->to('login');
+        }
+
+        $client = \Config\Services::curlrequest();
+        $url = env("URL_BACKEND")."/auth/allUser";
+        try{
+            $response = $client->request('GET', $url, [
+                    'headers' => [
+                        'Accept' => 'application/json',
+                        'Authorization' => 'Bearer '.substr(session()->get('token'),0,)
+                    ],
+                    'http_errors' => false // To handle HTTP errors manually
+                ]);
+
+                $responseBody = json_decode($response->getBody(), true);
+                $statusCode = $response->getStatusCode();
+
+                if ($statusCode >= 200 && $statusCode < 300) {
+
+                    // Success response
+                    // return $this->response->setJSON([
+                    //     'status' => true,
+                    //     'message' => 'Registration successful',
+                    //     'data' => $responseBody
+                    // ]);
+                    $data['responseBody'] = $responseBody ;
+                    return view('pages/access_level',$data);
+                } else {
+                    
+                    // API returned an error
+                    // log_message('error', 'Registration API error: ' . $response->getBody());
+                   return $this->response->setJSON([
+                       'status' => false,
+                       'message' => $e->getMessage()
+                   ])->setStatusCode(500);
+                }
+
+        }catch(\Exception $e){
+            // log_message('error', 'Registration exception: ' . $e->getMessage());
+            // print_r(e->getMessage());
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => $e->getMessage()
+            ])->setStatusCode(500);
+        }
+    }
 }
 ?>
