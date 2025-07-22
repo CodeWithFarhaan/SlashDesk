@@ -16,9 +16,6 @@
 <?= $this->include('modals/editTaskModal') ?>
 
 <div class="overflow-y-auto">
-  <div class="fixed inset-0 -z-10">
-    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-  </div>
   <div class="container mx-auto px-4 py-6 overflow-hidden">
     <!-- Header -->
     <div class="">
