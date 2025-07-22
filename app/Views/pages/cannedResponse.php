@@ -1,13 +1,10 @@
 <?= $this->include('partials/sidebar') ?>
 <?= $this->include('partials/navbar') ?>
 <div class="flex-1 overflow-hidden">
-  <div class="fixed inset-0 -z-10">
-    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-  </div>
   <!-- Main Content -->
   <div class="px-6 py-8 h-[calc(100vh-64px)] overflow-y-auto">
     <!-- Tabs -->
-    <div class="max-w-4xl px-6 mb-3">
+    <div class="max-w-6xl px-6 mb-3">
       <div class="flex bg-gray-200 rounded-lg p-1">
         <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
           <a href="/faqs">FAQ's</a>

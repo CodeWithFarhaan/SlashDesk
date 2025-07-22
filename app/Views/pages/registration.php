@@ -24,9 +24,6 @@
   </nav>
    <!-- Main Content -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="fixed inset-0 -z-10">
-      <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-    </div>
     <!-- Messages Container -->
     <div class="w-[56 rem] mx-auto mb-4">
       <?php if (session()->getFlashdata('success')): ?>

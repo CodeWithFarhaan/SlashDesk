@@ -2,9 +2,6 @@
 <?= $this->include('partials/navbar') ?>
 <!-- Main Content Area (Scrollable) -->
 <div class="flex-1 overflow-y-auto">
-    <div class="fixed inset-0 -z-10">
-        <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-    </div>
     <div class="p-6 max-w-6xl mx-auto">
         <!-- Page Header -->
         <div class="mb-6">

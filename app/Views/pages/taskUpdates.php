@@ -3,9 +3,6 @@
 <?= $this->include('modals/newTaskModal') ?>
 
 <div class="container mx-auto px-4 py-6 overflow-y-auto">
-  <div class="fixed inset-0 -z-10">
-    <img class="h-full w-full object-fill" src="/assets/images/backgroundImage.jpg" alt="bg-img">
-  </div>
   <!-- Header Buttons -->
   <div class="mb-8">
     <div class="flex bg-gray-200 rounded-lg p-1">
