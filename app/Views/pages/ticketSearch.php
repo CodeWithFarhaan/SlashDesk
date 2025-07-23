@@ -17,6 +17,9 @@
       <button class="flex-1 py-2 px-4 text-center bg-white rounded-md shadow-sm font-medium text-gray-900">
         <a href="/ticketSearch">Search</a>
       </button>
+      <button class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-gray-900 transition-colors">
+        <a href="/addnewTicket">New Ticket</a>
+      </button>
     </div>
   </div>
 

@@ -35,6 +35,7 @@ $routes->get('/ticketOpen', 'TicketOpen::index');
 $routes->get('/myTicket', 'MyTicket::index');
 $routes->get('/ticketClosed', 'TicketClosed::index');
 $routes->get('/ticketSearch', 'TicketSearch::index');
+$routes->get('/addnewTicket', 'AddNewTicket::index');
 
 
 $routes->get('/taskOpen', 'TaskOpen::index');

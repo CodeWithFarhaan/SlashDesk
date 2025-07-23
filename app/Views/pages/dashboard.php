@@ -2,7 +2,7 @@
 <?= $this->include('partials/navbar') ?>
 <?= $this->include('modals/newTaskModal') ?>
 <!-- Dashboard Content -->
-<main class="flex-1 p-6 overflow-auto relative">
+<main class="flex-1 p-6 bg-gray-200 overflow-auto relative">
   <!-- Welcome Banner -->
   <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-6 mb-6 text-white relative overflow-hidden">
     <div class="relative z-10">

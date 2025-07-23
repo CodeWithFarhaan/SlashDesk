@@ -125,6 +125,8 @@
                 class="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded">Closed</a>
               <a href="/ticketSearch"
                 class="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded">Search</a>
+              <a href="/addnewTicket"
+                class="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded">New Ticket</a>
             </div>
           </div>
 
